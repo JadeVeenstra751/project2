@@ -1,0 +1,395 @@
+/* JADE VEENSTRA*/
+/*css for the index/home page, along with universal menu and footer css*/
+
+* {
+  box-sizing: border-box;
+}
+
+/* menu is displayed in one line*/
+.menu{
+    display: inline-block;
+}
+
+/*nav <a>*/
+nav a{
+    text-decoration: none; /*no underline for hyperlinks*/
+    background-color: #ab8462; /*changes the background colour to brown*/
+    padding: 0.75rem 2.5rem; /*adds padding*/
+    border-radius: 2rem; /*makes the border round*/
+    font-weight: bold; /*makes font bold*/
+    text-decoration: none; /*no underline for hyperlinks*/
+    transition: background-color 0.3s ease; /*transitions from brown to green*/
+    border: 3px solid #7a5534; /*adds border to the section*/
+}
+
+/*nav <a> hover*/
+nav a:hover {
+    background-color: #69944c;/*changes background to light green*/
+    border: 3px solid #2d441e;/*changes border to dark green*/
+    padding: 0.75rem 2.5rem; /*adds padding to the hover*/
+    color: #2d441e; /*changes the text colour to dark green*/
+}
+
+/* the navigation/menu bar*/
+.nav{
+    display: flex; /*makes it flexible*/
+    flex-wrap: wrap; /*prevents the menu from overflowing when condensed*/
+    font-weight: bold; /*makes the text bold*/
+    background-color: #8A6240; /*brown backgorund colour for the nav bar*/
+    justify-content: space-evenly; /*spaces the items evenly*/
+    font-size: 1.25em; /*font size is 20px*/
+    align-items: center; /*vertically aligns items to centre*/
+    width: 85%; /* width of the nav bar is 85%*/
+    padding: 6px 0; /*adds padding*/
+    border-radius: 25px; /*border is rounded*/
+    margin: auto; /*centres the nav bar*/
+}
+
+/*logo image*/
+#imagelogo{
+    width: 40%; /*size of logo*/
+    height: auto; /*centres it*/
+    float: left; /*moves to the left*/
+}
+
+/*body for index page*/
+.home{ 
+    background-image: url('images/khakibackground.png'); /*image is from https://www.freepik.com/photos/khaki-background*/
+    background-position: center; /*centred in the middle of the screen*/
+    background-repeat: no-repeat; /*image is not repeated to prevent tiles*/
+    background-size: cover; /*covers the whole page*/
+    padding-bottom: 550px; /*adds padding to the bottom so footer doesnt cover text*/
+}
+
+/*heading 1 on index*/
+#leafbytetitle {
+    text-align: center; /*putting it in the centre of page*/
+    margin-left: 40%; /*adjusting it so it goes to the right a bit*/
+    color: #351e0f; /*text is set to brown*/
+    font-size: 3em; /*font size*/
+}
+
+/*heading 2 on index*/
+#companydescription {
+    font-size: 1em; /*font size*/
+}
+
+/*hyperlinks and footer colours*/
+.CustomLink, footer, footer a{
+    color:#351e0f; /*text is set to brown*/
+    text-decoration: none; /*removes the underline from the hyperlinks*/
+}
+
+/*formatting for about page Footer*/
+footer{
+    position: fixed; /*ensures footer is fixed*/
+    bottom: 0; /*ensure that footer is fixed to the BOTTOM of the page*/
+    left: 0; /*ensures that there is 0px gap from the left of page*/
+    width: 100%; /*ensures that footer spans across the whole width of page*/
+    text-align: center; /*align text content to center*/
+    background-color: #8A6240; /*adds background colour to section*/
+    border-top: solid #4d2d18; /*adds border only to the top of section*/
+    padding: 10px 0; /*adds padding to the footer*/
+    font-size: 0.85em; /*changes font size*/
+
+}
+
+/*company information section*/
+#indexcompanyinfo{
+    background-color: #ab8462; /*the background company information is light brown*/
+    padding: 12px 35px; /*adds padding, space around text*/
+    border-radius: 20px; /*makes the section round*/
+    margin-left: auto; /*pushes it to the right side*/
+    margin-right: 5%;  /*space from the right*/
+    text-align: center; /*centres the text*/
+    box-sizing: border-box; /*ensures padding wont add to total width*/
+    word-wrap: break-word; /*breaks long lines*/
+    width: 50%; /*to fit next to image*/
+    float: right; /*floats to the right*/
+    color: #351e0f; /*changes the text colour to brown*/
+    border: 2px solid #8A6240; /*adds border to the section*/
+}
+
+/*dividers in indexcompanyinfo*/
+.indexdivider1, .indexdivider2, .indexdivider3{
+    border: none; /*removes border*/
+    border-top: 2px solid #8A6240; /*gives new border and changes colour*/
+    width: 80%; /*length of the divider*/
+    margin: 20px auto; /*adds space above and below*/
+}
+
+/*buttons in the company information*/
+#indexinfosearch, #indexinfoapply {
+    background-color: #8A6240; /*brown backgorund colour*/
+    padding: 0.75em 1.25em; /*adds padding*/
+    border-radius: 25px; /*border is rounded*/
+    margin: auto; /*centres search button*/
+    text-align: center; /*centres the text*/
+    display: inline-block; /*displays it in one line*/
+    transition: background-color 0.3s ease; /*transitions from brown to green*/
+    border: 3px solid #7a5534; /*adds border to the section*/
+}
+
+/*indexinfobuttons hover*/
+#indexinfosearch:hover, #indexinfoapply:hover {
+    background-color: #69944c; /*changes background to light green*/
+    border: 3px solid #2d441e; /*changes border to dark green*/
+    padding: 0.75em 1.28em; /*adds padding to the hover*/
+}
+
+/*section*/
+section a{
+    text-decoration: none; /*no underline for hyperlinks*/
+    color:#351e0f; /*colour is changed to brown*/
+}
+
+/*hover for section and footer*/
+section a:hover, footer a:hover{
+    color: #2d441e;/*changes text to dark green*/
+}
+
+/* WILL STEVENS*/
+/*css for apply.html along with phone resize and global fieldset css*/
+
+/*Allows the page to be resized, optimised for phones or tablets*/
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+    .header {
+        font-size: 24px;
+    }
+}  
+
+/*form*/
+form{
+    display:flex;/*Creates a flex display*/
+    flex-direction: column;/*Forces the flex to go down the page*/
+    flex-flow:wrap;/*Able to condense*/
+    min-width:500px;/*sets min width to 350 so it condenses fine*/
+    margin:auto;/*Sets form to middle of available screen*/
+    margin-left:28%;/*This counteracts the aside note, so that the form is in the centre*/
+    width:43%;/*sets width to 813px*/
+    background-color:#ab8462;/*sets background colour*/
+    padding:20px;/*Creates space between contents and border*/
+    border-radius:25px;/*Rounds edges of border off*/
+    border:2px solid #8A6240;/*sets border colour*/
+}
+
+/*body*/
+body{
+    font-family:Calibri; /*making the website font calibri*/
+}
+/*Apply and Reset buttons*/
+.submission{
+    width:200px;/*changes width of buttons*/
+}
+/*The whole page*/
+.page{
+    background-color:#CABA9C;/*changes background colour to a kahki*/
+}
+
+/*Company logo*/
+.logo{
+  display: block;/*creates a moveable display block*/
+  margin: 0 auto;/*Sets image to the centre*/
+  padding-right: 20px;/*Scales Image down*/
+}
+
+/*Title and aside note at the top*/
+.title,.note{
+    text-align: center;/*sets text to the middle*/
+    color:#351e0f;/*changes colour to brown*/
+}
+
+/*Aside note*/
+.AsideNote{
+    float:right;/*Sets the note fieldset to the right*/
+    background-color:#ab8462;/*sets background colour*/
+    width:400px;/*decreases the width from 750px to 400px, only for this fieldset*/
+}
+/*Fieldset*/
+fieldset{
+    color:#351e0f;/*changes color of the text to brown*/
+    border-color:#351e0f;/*changes colour of its border to brown*/
+    border-radius:20px;/*changes border radius to round it off more*/
+    width:800px;/*changes width of fieldset to 750px*/
+}
+
+/*select and input*/
+select, input, textarea{
+    border:solid 2px #351e0f;
+    color:#351e0f;/*changes colour of text to brown*/
+    background-color:#8A6240;/*changes background colour to light brown*/
+    border-radius:20px;/*changes border radius so that the border has rounded corners*/
+    padding:6px;/*creates a bigger gap between the border and the text*/
+    font-size:14px;/*changes font size to 14px*/   
+}
+/*place holder in textarea*/
+textarea::placeholder{
+    color:#351e0f;/*sets colour of text*/
+}
+/*When hovered over select*/
+select:hover{
+    background-color: #69944c;/*changes background to light green*/
+    border: 2px solid #2d441e;/*changes border to dark green*/ 
+}
+
+.AsideNote:hover{
+    background-color: #69944c;/*changes background to light green*/
+    border: 2px solid #2d441e;/*changes border to dark green*/ 
+}
+/*When hovered over input*/
+input:hover{
+    background-color: #69944c;/*changes background to light green*/
+    border: 2px solid #2d441e;/*changes border to dark green*/  
+}
+
+textarea:hover{
+    background-color: #69944c;/*changes background to light green*/
+    border: 2px solid #2d441e;/*changes border to dark green*/   
+}
+
+/*Moji Alak*/
+/*css for about.html*/
+
+/*formatting for body*/
+.about{
+    background-color: #CABA9C;/*adds back ground colour*/
+    padding-bottom: 4em; /*ensures that sections will not overlap with fixed footer*/
+    color: #351e0f;
+}
+
+#aboutheader{
+    border: 2px solid #8A6240; /*creates a border for the section*/
+    border-radius: 15px; /*makes the border rounded*/
+    padding: 1.5em; 
+    background-color: #ab8462; /*Adds background colour within the bordered section*/
+    overflow: hidden; /*Make sure the image and text stays within the border*/
+}
+
+/*formatting for comapany logo on about page*/
+#complogo{
+    float: left; /*ensure image is on the left*/
+    padding: 1em; /*adds padding to image*/
+}
+
+/*formatting for About page company discription section*/
+#aboutdescript{
+    font-size: 1.5em; /*changes text size*/
+}
+
+/*formatting for side bar*/
+.sidebar{
+    text-align: right; /*ensure section is on the right*/
+    float: right; /*allow other items to be on the left of section*/
+}
+
+/*styling for ul on about page*/
+.aboutlist{
+    list-style-type: none; /*removes the bullet points from lists*/
+    margin-bottom: 1em; /*spacing between items for readability*/
+}
+
+/*team photo styling*/
+#teampic{
+    float: right; /*image to be positioned on the right while allowing other contents to flow to the left*/
+    margin-left: 2em; /*adds margin to the left of image*/
+    margin-top: 2em; /*adds margin to the top of image*/
+    border: 2px solid #8A6240; /*adds boarder to image*/
+    border-radius: 15px; /*makes the border rounded*/
+}
+
+/*styling for unordered list in table*/
+.tablelist{
+    list-style-type: none; /*removes bullet points from list*/
+    text-align: left; /*aligns text to the left of table*/
+}
+
+/*table formatting*/
+#abouttable{
+    text-align: center; /*align text within the table to center*/
+    margin: 0 auto; /*ensures that table is centered on the page*/
+    width: 75%; /*ensures that table takes up 75% of page*/
+    border-collapse: collapse;
+    padding: 10px; /*adds padding to table*/
+    background-color: #8A6240;
+    border-radius: 15px; /*rounds the border of the table*/
+}
+
+/*formatting for table header row*/
+.headerrow{
+    padding: 1em; /*adds padding around text for better readability*/
+}
+
+/*adds hover effect to table*/
+#abouttable tr:hover{
+    background-color: #69944c; /*changes color when curser in hovered over rows*/
+    cursor: pointer; /*changes curser to pointer when hovered over rows*/
+}
+
+/*transition effect or table*/
+#abouttable tr{transition: background-color 0.5s ease;} /*delays the colour transition for a smoother effect*/
+
+/*formatting for contribution section*/
+#contributions{
+    margin: auto; /*centers the section within the page*/
+    border:2px solid #2d441e; /*adds border around section*/
+    border-radius: 15px; /*rounds the corner of the border*/
+    padding: 1em; /*adds padding so text does not sit against the border*/
+}
+
+/*formatting for description list*/
+.students{padding: 2em;} /*adds padding around text in class .students*/
+
+/*formatting for description list*/
+.students:first-child, .students:nth-child(2), .students:nth-child(3), .students:nth-child(4) {float: left;} /*floats descrtiption list to left*/
+
+/*Closing line styling*/
+#finalabout{
+    text-align: center; /*makes text aling to center*/
+    color: #2d441e; /*changes text colour to green*/
+    clear: both; /*ensure nothing can be place in line of the left or right*/
+    padding: 2em;
+}
+
+/* Muhammad Taki*/
+/*css for jobs.html*/
+
+/* To set a fixed width for the logo image */
+#logo_jobs{
+    width: 200px;
+}
+
+/* Job Title setting*/
+
+.h1_jobs{
+    border: solid #351e0f; /*To create a border around the content*/
+    width: 230px; /*Witdh size of content */
+    border-radius: 10px; /*making corners of the shape curved*/
+    transition-duration: 0.1s; /*Applied to create a delay in transition*/
+}
+
+/*Changes to job titles when mouse hovers above it*/
+.h1_jobs:hover{
+    background-color: #351e0f; /*Creates background colour*/
+    color: #CABA9C;
+}
+
+/* aside setting*/
+
+#aside_jobs{
+    float: right; /*Setting it to be located on the right side of page*/
+    border: solid  #351e0f; /*To create a border around the content*/
+    border-radius: 10px;  /*making corners of the shape curved*/
+    font-size: 14px; /*Size of text*/
+    padding: 5px; /*gap around the content*/
+    width: 25%; /*size of content on the page*/
+}
+
+
+#h1_jobs {
+    font: normal 34px 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /*Setting font family, size, and variant.*/
+    color: #4d2d18; /*changing color of content*/
+  }
