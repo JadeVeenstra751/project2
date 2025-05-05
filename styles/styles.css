@@ -207,7 +207,7 @@ body{
 .AsideNote{
     float:right;/*Sets the note fieldset to the right*/
     background-color:#ab8462;/*sets background colour*/
-    width:400px;/*decreases the width from 750px to 400px, only for this fieldset*/
+    width:300px;/*decreases the width from 750px to 400px, only for this fieldset*/
 }
 /*Fieldset*/
 fieldset{
@@ -226,9 +226,15 @@ select, input, textarea{
     padding:6px;/*creates a bigger gap between the border and the text*/
     font-size:14px;/*changes font size to 14px*/   
 }
+
+input::placeholder{
+    color:#351e0f;/*sets colour of text*/  
+    font-style:italic;
+}
 /*place holder in textarea*/
 textarea::placeholder{
     color:#351e0f;/*sets colour of text*/
+    font-style:italic;
 }
 /*When hovered over select*/
 select:hover{
