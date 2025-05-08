@@ -16,7 +16,6 @@ nav a{
     background-color: #ab8462; /*changes the background colour to brown*/
     padding: 0.75rem 2.5rem; /*adds padding*/
     border-radius: 2rem; /*makes the border round*/
-    font-weight: bold; /*makes font bold*/
     text-decoration: none; /*no underline for hyperlinks*/
     transition: background-color 0.3s ease; /*transitions from brown to green*/
     border: 3px solid #7a5534; /*adds border to the section*/
@@ -34,7 +33,6 @@ nav a:hover {
 .nav{
     display: flex; /*makes it flexible*/
     flex-wrap: wrap; /*prevents the menu from overflowing when condensed*/
-    font-weight: bold; /*makes the text bold*/
     background-color: #8A6240; /*brown backgorund colour for the nav bar*/
     justify-content: space-evenly; /*spaces the items evenly*/
     font-size: 1.25em; /*font size is 20px*/
@@ -179,7 +177,7 @@ form{
 
 /*body*/
 body{
-    font-family:Calibri; /*making the website font calibri*/
+    font-family:Arial, Helvetica, sans-serif; /*making the website font calibri*/
 }
 /*Apply and Reset buttons*/
 .submission{
