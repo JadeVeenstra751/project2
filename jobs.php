@@ -10,15 +10,7 @@
 </head>
 <body class="page" id="test_jobs">
     <!--Applied <nav> to create a navigation section for site links-->
-	<nav class="nav">
-        <!--Applied <p> to group individual navigation links -->
-        <!--Applied <a> to create clickable links to other pages and email-->
-            <p class="menu"><a href="./index.html" class="CustomLink">HOME</a></p> 
-            <p class="menu"><a href="./jobs.html" class="CustomLink">JOBS</a> </p> 
-            <p class="menu"><a href="./apply.html" class="CustomLink">APPLY</a></p> 
-            <p class="menu"><a href="./about.html" class="CustomLink">ABOUT</a></p> 
-		<p class="menu"><a href="mailto:info@LeafByteTech.com.au" class="CustomLink">CONTACT</a></p> 
-	</nav>
+    <?php include 'nav.inc';?>
     <!--Applied <img> to display the company logo-->
     <img id="logo_jobs" src="images/leafbytetechlogo.png" alt="CompanyLogo"> 
     <h1 id="h1_jobs">Jobs at Leaf Byte Tech</h1>
@@ -82,9 +74,6 @@
         <br>
     </section>
     <!--Applied <footer> to include closing site content such as credits and links-->
-    <footer class="footer">
-        <a href="https://wtmjg01.atlassian.net/jira/software/projects/SCRUM/summary" target="_blank" >Jira Project Management</a>
-        | <em> &copy; 2025 LeafByte Tech. All rights reserved.</em>
-    </footer>
+    <?php include 'footer.inc';?>
 </body>
 </html>
