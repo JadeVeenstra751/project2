@@ -18,13 +18,7 @@
 <!-- body is declared as home so it is unique to this html page-->
 <body class="home">
     <!-- navigation menu with hyperlinks to the about, apply, index and job pages, along with the e-mail contact-->
-	<nav class="nav">
-        <p class="menu"><a href="./index.html" class="CustomLink">HOME</a></p> 
-		<p class="menu"><a href="./jobs.html" class="CustomLink">JOBS</a> </p> 
-		<p class="menu"><a href="./apply.html" class="CustomLink">APPLY</a></p> 
-		<p class="menu"><a href="./about.html" class="CustomLink">ABOUT</a></p> 
-		<p class="menu"><a href="mailto:info@LeafByteTech.com.au" class="CustomLink">CONTACT</a></p> 
-	</nav>
+	<?php include 'nav.inc';?>
     <!--title is given a separate id-->
     <h1 id="leafbytetitle">LEAFBYTE TECH</h1>
     <!-- the company information is sectioned off-->
@@ -44,9 +38,6 @@
     <img id="imagelogo" src="images/leafbytetechlogo.png" alt="CompanyLogo">
     <!-- line breaks so the footer doesnt cover text (dont know the problem?)-->
     <footer class="footer">
-    <!-- hyperlink to jira project -->
-		<a href="https://wtmjg01.atlassian.net/jira/software/projects/SCRUM/summary" target="_blank" >Jira Project Management</a>
-        |<em> &copy; 2025 LeafByte Tech. All rights reserved.</em>
-	</footer>
+    <?php include 'footer.inc';?>
 </body>
 </html>
