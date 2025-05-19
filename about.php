@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <!--view port for a responsive design-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--description for page-->
-    <meta name="description" content="About Page for LeafByte Tech">
-    <!--keywords for page-->
-    <meta name="keywords" content="HTML, About Page, LeafByte Tech, Green and Brown">
+    <?php include 'header.inc';?>
     <!--author details-->
     <meta name="author" content="Moji Alak">
     <title>About Page</title>

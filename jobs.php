@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Position Descriptions page">
-    <meta name="keywords" content="HTML, Doctype, Head, Body, Meta, Paragraph, Headings, Strong, Emphasis">
+    <?php include 'header.inc';?>
     <meta name="author" content="Muhammad Taki">
     <link rel="stylesheet" href="styles/styles.css">
     <title>Job description</title>

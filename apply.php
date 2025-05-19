@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!--Meta children and link to css file-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Job Application for LeafByte Tech">
-    <meta name="keywords" content="HTML, Job Application, LeafByte Tech, Green and brown">
+ <?php include 'header.inc';?>
     <meta name="author" content="Will Stevens">
     <title>Job Application Page</title>
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
