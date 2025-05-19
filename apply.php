@@ -12,13 +12,7 @@
 </head>
 <body class="page">
      <!--Creates menu that is used to go from page to page within project-->
-    <nav class="nav">
-        <p class="menu"><a href="./index.html" class="CustomLink">HOME</a></p> 
-		<p class="menu"><a href="./jobs.html" class="CustomLink">JOBS</a> </p> 
-		<p class="menu"><a href="./apply.html" class="CustomLink">APPLY</a></p> 
-		<p class="menu"><a href="./about.html" class="CustomLink">ABOUT</a></p> 
-		<p class="menu"><a href="mailto:info@LeafByteTech.com.au" class="CustomLink">CONTACT</a></p> 
-	</nav>
+	<?php include 'nav.inc';?>
      <!--inputs company logo at the top of the page, resizing it to 50px-->
     <aside>
       <img src="images/leafbytetechlogo.png" class="logo" alt="CompanyLogo" width="200">  
@@ -160,8 +154,6 @@
      <br>
      <!--Creats a footer at the bottom of the page that includes a link to our Jira project, and a fake copy right watermark-->
      <footer class="footer">
-        <a href="https://wtmjg01.atlassian.net/jira/software/projects/SCRUM/summary" class="customlink" target="_blank">Jira Project Management</a>
-        |<em> &copy; 2025 LeafByte Tech. All rights reserved.</em>
-    </footer> 
+    <?php include 'footer.inc';?>
 </body>
 </html>

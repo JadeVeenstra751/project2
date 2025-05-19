@@ -17,13 +17,7 @@
 
 <body class="about">
     <!--Navigation bar with hyperlinks to other pages-->
-    <nav class="nav">
-        <p class="menu"><a href="./index.html" class="CustomLink">HOME</a></p> 
-		<p class="menu"><a href="./jobs.html" class="CustomLink">JOBS</a> </p> 
-		<p class="menu"><a href="./apply.html" class="CustomLink">APPLY</a></p> 
-		<p class="menu"><a href="./about.html" class="CustomLink">ABOUT</a></p> 
-        <p class="menu"><a href="mailto:info@LeafByteTech.com.au" class="CustomLink">CONTACT</a></p> 
-    </nav>
+	<?php include 'nav.inc';?>
     <br>
 
     <section id="aboutheader">
@@ -179,8 +173,6 @@
 
     <!--Footer Section with link to JIRA project-->
     <footer class="footer">
-        <a href="https://wtmjg01.atlassian.net/jira/software/projects/SCRUM/summary" class="aboutlink" target="_blank">Jira Project Management</a>
-            |<em> &copy; 2025 LeafByte Tech. All rights reserved.</em>
-    </footer>
+    <?php include 'footer.inc';?>
 </body>
 </html>
