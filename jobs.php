@@ -1,6 +1,6 @@
 <?php
 include 'header.inc';
-include 'settings.php'; // Include your database connection details
+include 'settings.php';
 ?>
     <meta name="author" content="Muhammad Taki">
     <link rel="stylesheet" href="styles/styles.css">
@@ -48,7 +48,7 @@ include 'settings.php'; // Include your database connection details
         echo "<p><b>Responsibilities of this position include:</b></p>";
         echo "<ol>";
         // Split the responsibilities string by semicolon and display as list items
-        $responsibilities = (';', $row['skills_responsibilities']);
+        $responsibilities = explode(';', $row['skills_responsibilities']); //explode, seperates string to array
         foreach ($responsibilities as $responsibility) {
              $trimmed_responsibility = trim($responsibility);
              if (!empty($trimmed_responsibility)) {
@@ -62,8 +62,7 @@ include 'settings.php'; // Include your database connection details
         echo "<br>";
     }
 
-    // Free result set and close connection
-    mysqli_free_result($result);
+    // close connection
     mysqli_close($conn);
     ?>
 
