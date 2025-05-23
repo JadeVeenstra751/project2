@@ -12,7 +12,7 @@ include 'header.inc'; ?>
 <?php include 'nav.inc';
 
 if (!$isLoggedIn) {
-    echo '<body style="background-color: #f5f0e6;">';
+    echo '<body style="background-color: #caba9c;">';
     echo '<div style="text-align:center; margin: 2em 0;">';
     echo '<a id="indexinfoapply" href="/login.php" class="CustomLink" style="padding:1em 2em; font-size:1.5em; border-radius:50px; display:inline-block;">Login</a>';
     echo '</div>';
