@@ -17,6 +17,10 @@
   margin: 0 auto;
 }
 
+.loginbody{
+    background-color: #ab8462;
+}
+
 /*nav <a>*/
 nav a{
     text-decoration: none; /*no underline for hyperlinks*/
