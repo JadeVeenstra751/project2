@@ -12,11 +12,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $input_password = trim($_POST['password']);
     
     $query = "SELECT * FROM user WHERE username = '$input_username' AND password = '$input_password'";
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($conn2, $query);
     $user = mysqli_fetch_assoc($result);
 
 if ($user) {
   $_SESSION['username'] = $user['username'];
+  $_SESSION['role'] = $user['role'];
   header("Location: leafbyte_settings.php");
   exit();
 } else {
