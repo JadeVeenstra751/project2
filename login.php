@@ -6,7 +6,7 @@
 <body>
 <?php include 'nav.inc'; ?>
 
-<form action="process_login.php" method="post" style="display: flex; justify-content: center;">
+<form action="process_login.php" method="post" background-color: #ab8462;>
   <div class="login-form">
     <fieldset>
     <label for="username">Username:</label>
