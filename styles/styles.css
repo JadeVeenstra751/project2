@@ -116,15 +116,21 @@ footer{
     margin: 20px auto; /*adds space above and below*/
 }
 
-.leafbytesettings {
-    background-color: #8A6240;
-    padding: 0.75em 1.25em;
-    border-radius: 25px;
-    margin: auto;
-    text-align: center;
-    display: inline-block;
-    transition: background-color 0.3s ease;
+.settingsbutton {
+    background-color: #ab8462;
+    padding: 0.75rem 2.5rem;
+    border-radius: 2rem;
     border: 3px solid #7a5534;
+    transition: background-color 0.3s ease;
+    color: #351e0f;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.settingsbutton:hover {
+    background-color: #69944c;
+    border-color: #2d441e;
+    color: #2d441e;
 }
 
 /*buttons in the company information*/

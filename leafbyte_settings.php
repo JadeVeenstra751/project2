@@ -13,7 +13,7 @@ include 'header.inc'; ?>
 
 if (!$isLoggedIn) {
     echo '<div class="leafbytesettings">';
-    echo '<p class="leafbytebuttons"><a href="./login.php" class="CustomLink">Login</a></p>';
+    echo '<a href="./login.php" class="settingsbutton">Login</a>';
     echo '</div>';
 } else {
     echo '<p>Welcome, ' . htmlspecialchars($_SESSION['username']) . '!</p>';
