@@ -146,6 +146,47 @@ section a:hover, footer a:hover{
     color: #2d441e;/*changes text to dark green*/
 }
 
+.login-section {
+    width: 320px;
+    margin: 3em auto;
+    background-color: #ab8462; /* light brown */
+    padding: 2em;
+    border-radius: 20px;
+    color: #351e0f; /* dark brown text */
+}
+
+.login-label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+.login-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 1.2em;
+    border-radius: 15px;
+    border: 2px solid #7a5534; /* brown border */
+    font-size: 1em;
+}
+
+.login-button {
+    background-color: #ab8462; /* same brown */
+    color: #351e0f;
+    border: 3px solid #7a5534;
+    border-radius: 2rem;
+    padding: 0.75rem 2.5rem;
+    width: 100%;
+    font-size: 1.25em;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #69944c; /* green hover */
+    border-color: #2d441e;
+    color: #2d441e;
+}
+
 /* WILL STEVENS*/
 /*css for apply.html along with phone resize and global fieldset css*/
 
