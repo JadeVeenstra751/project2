@@ -12,8 +12,8 @@ include 'header.inc'; ?>
 <?php include 'nav.inc';
 
 if (!$isLoggedIn) {
-      echo '<section id="settingspage">';
-    echo '<p><a id="settingsbutton" href="/login.php">Login</a></p>';
+    echo '<nav class="nav">';
+    echo '<p class="menu"> href="/login.php">Login</a></p>';
     echo '</div>';
 } else {
     echo '<p>Welcome, ' . htmlspecialchars($_SESSION['username']) . '!</p>';

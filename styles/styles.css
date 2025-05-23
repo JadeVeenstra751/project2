@@ -135,16 +135,6 @@ footer{
     padding: 0.75em 1.28em; /*adds padding to the hover*/
 }
 
-#settingsbutton{
-    background-color: #8A6240; /*brown backgorund colour*/
-    padding: 0.75em 1.25em; /*adds padding*/
-    border-radius: 25px; /*border is rounded*/
-    margin: auto; /*centres search button*/
-    text-align: center; /*centres the text*/
-    display: inline-block; /*displays it in one line*/
-    transition: background-color 0.3s ease; /*transitions from brown to green*/
-}
-
 /*section*/
 section a{
     text-decoration: none; /*no underline for hyperlinks*/
