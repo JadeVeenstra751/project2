@@ -8,5 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
     // redirects to login page
     header("Location: login.php");
     exit();
+}
     ?>
 <?php
