@@ -1,9 +1,6 @@
 <?php include 'header.inc'; ?>
 <meta name="author" content="Jade Veenstra">
 <title>LeafByte Tech Login Page</title>
-</head>
-
-<body>
 <?php include 'nav.inc'; ?>
 
 <form action="process_login.php" method="post" background-color: #ab8462;>
