@@ -7,10 +7,9 @@
 <body>
 <form action="process_login.php" method="post" background-color: #ab8462;>
   <div class="login-form">
-
     <label for="username">Username:</label>
     <input type="text" name="username" id="username">
-
+    <br>
     <label for="password">Password:</label>
     <input type="password" name="password" id="password">
 
