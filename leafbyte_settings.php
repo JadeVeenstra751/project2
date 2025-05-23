@@ -1,8 +1,4 @@
 <?php
-session_start();
-$isLoggedIn = isset($_SESSION['username']);
-$isManager = isset($_SESSION['role']) && $_SESSION['role'] === 'manager';
-
 include 'header.inc'; ?>
     <meta name="author" content="Jade Veenstra">
     <title>Settings Page</title>
