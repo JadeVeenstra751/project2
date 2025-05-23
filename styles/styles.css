@@ -116,8 +116,19 @@ footer{
     margin: 20px auto; /*adds space above and below*/
 }
 
+.leafbytesettings {
+    background-color: #8A6240;
+    padding: 0.75em 1.25em;
+    border-radius: 25px;
+    margin: auto;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    border: 3px solid #7a5534;
+}
+
 /*buttons in the company information*/
-#indexinfosearch, #indexinfoapply, .leafbytesettings{
+#indexinfosearch, #indexinfoapply{
     background-color: #8A6240; /*brown backgorund colour*/
     padding: 0.75em 1.25em; /*adds padding*/
     border-radius: 25px; /*border is rounded*/
@@ -129,7 +140,7 @@ footer{
 }
 
 /*indexinfobuttons hover*/
-#indexinfosearch:hover, #indexinfoapply:hover, .leafbytesettings a:hover{
+#indexinfosearch:hover, #indexinfoapply:hover{
     background-color: #69944c; /*changes background to light green*/
     border: 3px solid #2d441e; /*changes border to dark green*/
     padding: 0.75em 1.28em; /*adds padding to the hover*/
