@@ -16,7 +16,14 @@
   border-radius: 8px;
   width: 300px;
   margin: 0 auto;
-  height: 100vh;  
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 /*nav <a>*/
