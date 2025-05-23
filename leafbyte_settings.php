@@ -8,7 +8,7 @@ include 'header.inc'; ?>
     <title>Settings Page</title>
 </head>
 
-<body>
+<body class="settingspage">
 <?php include 'nav.inc';
 
 if (!$isLoggedIn) {
