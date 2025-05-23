@@ -13,7 +13,7 @@ include 'header.inc'; ?>
 
 if (!$isLoggedIn) {
     echo '<section id="indexcompanyinfo">';
-    echo '<p><a id="indexinfoapply" href="/login.php"><strong>APPLY NOW</strong></a></p>';
+    echo '<p><a id="indexinfoapply" href="/login.php"><strong>Login</a></p>';
     echo '</div>';
 } else {
     echo '<p>Welcome, ' . htmlspecialchars($_SESSION['username']) . '!</p>';
