@@ -175,9 +175,8 @@ section a:hover, footer a:hover{
 form{
     display:flex;/*Creates a flex display*/
     flex-direction: column;/*Forces the flex to go down the page*/
-    flex-flow:wrap;/*Able to condense*/
-    min-width:500px;/*sets min width to 350 so it condenses fine*/
-    margin:auto;/*Sets form to middle of available screen*/
+    align-items: flex-start;
+    margin: 40px auto;/*Sets form to middle of available screen*/
     margin-left:28%;/*This counteracts the aside note, so that the form is in the centre*/
     width:43%;/*sets width to 813px*/
     background-color:#ab8462;/*sets background colour*/
