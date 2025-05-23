@@ -13,15 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $query = "SELECT * FROM user WHERE username = '$input_username' AND password = '$input_password'";
     $result = mysqli_query($conn2, $query);
-    $users = mysqli_fetch_assoc($result);
+     if (!$result) {
+        die("Query failed: " . mysqli_error($conn2));
+    }
+     $user = mysqli_fetch_assoc($result);
 
-if ($user) {
-  $_SESSION['username'] = $user['username'];
-  $_SESSION['role'] = $user['role'];
-  header("Location: leafbyte_settings.php");
-  exit();
-} else {
-  echo "Incorrect credentials. Please <a href='./login.php'>login</a>.";
-}
+    if (!$user) {
+        echo "Incorrect credentials. Please <a href='./login.php'>login</a>.";
+    } else {
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['role'] = $user['role'];
+        header("Location: leafbyte_settings.php");
+        exit();
+    }
 }
 ?>
