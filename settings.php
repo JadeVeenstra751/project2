@@ -12,7 +12,7 @@ if (!$conn1) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql_db2 = "job_db";// name of db
+$sql_db2 = "userprofile";// name of db
 //establish connection
 $conn2 = mysqli_connect($host, $user, $pwd, $sql_db);
 //if connection unsuccessful, stop execution
