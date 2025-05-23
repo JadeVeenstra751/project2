@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $query = "SELECT * FROM user WHERE username = '$input_username' AND password = '$input_password'";
     $result = mysqli_query($conn2, $query);
-    $user = mysqli_fetch_assoc($result);
+    $users = mysqli_fetch_assoc($result);
 
 if ($user) {
   $_SESSION['username'] = $user['username'];
