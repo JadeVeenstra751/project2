@@ -9,7 +9,7 @@
   <form action="process.php" method="post" class="login-form">
     <label for="username" class="login-label">Username:</label>
     <input type="text" id="username" name="username" class="login-input" required>
-
+<br>
     <label for="password" class="login-label">Password:</label>
     <input type="password" id="password" name="password" class="login-input" required>
 
