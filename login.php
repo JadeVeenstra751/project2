@@ -4,7 +4,7 @@
 <?php include 'nav.inc'; ?>
 </head>
 
-<body>
+<body class="loginbody">
 <form action="process_login.php" method="post" background-color: #ab8462;>
   <div class="login-form">
     <label for="username">Username:</label>

@@ -18,7 +18,7 @@
   margin: 0 auto;
 }
 
-body {
+.loginbody {
   display: flex;
   justify-content: center;
   align-items: center;
