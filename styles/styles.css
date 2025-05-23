@@ -10,15 +10,17 @@
     display: inline-block;
 }
 
+/*login form selector container*/
 .login-form {
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
+  padding: 20px; /*padding around content*/
+  width: 500px;
+  height: 500px;
   margin: 0 auto;
 }
 
+/*body for login page*/
 .loginbody{
-    background-color: #ab8462;
+    background-color: #ab8462; /*changes the background colour to tan/brwon*/
 }
 
 /*nav <a>*/
