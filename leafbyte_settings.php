@@ -13,7 +13,7 @@ include 'header.inc'; ?>
 
 if (!$isLoggedIn) {
     echo '<div style="text-align:center; margin: 2em 0;">';
-    echo '<a id="menu" href="/login.php" class="CustomLink" style="padding:1em 2em; font-size:1.5em; border-radius:50px; display:inline-block;">Login</a>';
+    echo echo '<a href="/login.php" class="menu CustomLink">Login</a> style="padding:1em 2em; font-size:1.5em; border-radius:50px; display:inline-block;">Login</a>';
     echo '</div>';
 } else {
     echo '<p>Welcome, ' . htmlspecialchars($_SESSION['username']) . '!</p>';
