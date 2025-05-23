@@ -49,11 +49,11 @@ include 'settings.php';
         echo "<ol>";
         // Split the responsibilities string by semicolon and display as list items
         $responsibilities = explode(';', $row['skills_responsibilities']); //explode, seperates string to array
-        foreach ($responsibilities as $responsibility) {
-             $trimmed_responsibility = trim($responsibility);
-             if (!empty($trimmed_responsibility)) {
-                echo "<li>" . ($trimmed_responsibility) . "</li>";
-             }
+        foreach ($responsibilities as $skill) {
+             $skill = trim($skill);
+            if ($skill != "") {
+                echo "<li>$skill</li>";
+            }
         }
         echo "</ol>";
         echo "<p><b>Salary Range:</b> " . ($row['salary']) . "</p>";
