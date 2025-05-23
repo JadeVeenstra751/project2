@@ -7,7 +7,6 @@
 <?php include 'nav.inc'; ?>
 
 <section class="login-section">
-  <form action="process_login.php" method="post" class="login-form">
     <label for="username" class="login-label">Username:</label>
     <input type="text" id="username" name="username" class="login-input" required>
     
