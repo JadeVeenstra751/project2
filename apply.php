@@ -18,7 +18,7 @@
             If you are unable to answer you can use N/A. </p> 
     </fieldset>
     <!--Creation of form-->
-     <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+     <form id="form2" method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
         <!--Adds a fieldset that has a drop down list, containing job reference numbers. 
         Uses "please select" as a placeholder-->
         <fieldset>
