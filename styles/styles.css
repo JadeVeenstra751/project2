@@ -163,15 +163,16 @@ section a:hover, footer a:hover{
 
 .login-input {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 1.5em; 
-    border-radius: 15px;
-    border: 2px solid #7a5534;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1em;
+    border: 3px solid #7a5534;
+    border-radius: 2rem;
     font-size: 1em;
     box-sizing: border-box;
 }
 
 .login-button {
+    margin-top: 1em;
     background-color: #ab8462;
     color: #351e0f;
     border: 3px solid #7a5534;
@@ -180,7 +181,7 @@ section a:hover, footer a:hover{
     width: 100%;
     font-size: 1.25em;
     cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .login-button:hover {
