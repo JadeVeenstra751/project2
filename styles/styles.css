@@ -161,7 +161,7 @@ section a:hover, footer a:hover{
 }  
 
 /*form*/
-#form1 {
+form {
     display:flex;/*Creates a flex display*/
     flex-direction: column;/*Forces the flex to go down the page*/
     flex-flow:wrap;/*Able to condense*/
