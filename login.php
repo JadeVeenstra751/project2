@@ -2,11 +2,12 @@
 <meta name="author" content="Jade Veenstra">
 <title>Login - LeafByte Tech</title>
 </head>
-<body class="home">
+
+<body>
 <?php include 'nav.inc'; ?>
 
 <section class="login-section">
-  <form action="process.php" method="post" class="login-form">
+  <form action="process_login.php" method="post" class="login-form">
     <label for="username" class="login-label">Username:</label>
     <input type="text" id="username" name="username" class="login-input" required>
     
