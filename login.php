@@ -6,7 +6,7 @@
 <body>
 <?php include 'nav.inc'; ?>
 
-<form action="process.php" method="post" style="display: flex; justify-content: center;">
+<form id="form1" action="process_login.php" method="post" style="display: flex; justify-content: center;">
   <div class="login-form">
     <label for="username">Username:</label>
     <input type="text" name="username" id="username">
