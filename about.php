@@ -2,8 +2,6 @@
     <!--author details-->
     <meta name="author" content="Moji Alak">
     <title>About Page</title>
-    <!--link to the css page-->
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
 
 <body class="about">

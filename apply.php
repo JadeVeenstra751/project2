@@ -1,7 +1,6 @@
  <?php include 'header.inc';?>
     <meta name="author" content="Will Stevens">
     <title>Job Application Page</title>
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
 <body class="page">
      <!--Creates menu that is used to go from page to page within project-->

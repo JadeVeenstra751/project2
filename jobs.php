@@ -3,7 +3,6 @@ include 'header.inc';
 include 'settings.php';
 ?>
     <meta name="author" content="Muhammad Taki">
-    <link rel="stylesheet" href="styles/styles.css">
     <title>Job description</title>
 </head>
 <body class="page" id="test_jobs">

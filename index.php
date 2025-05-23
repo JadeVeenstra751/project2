@@ -3,8 +3,6 @@
     <meta name="author" content="Jade Veenstra">
     <!--title of page-->
     <title>LeafByte Tech </title>
-   <!-- linking the html file to css file-->
-   <link rel="stylesheet" href="styles/styles.css">
 </head>
 <!-- body is declared as home so it is unique to this html page-->
 <body class="home">

@@ -5,7 +5,6 @@ $isManager = isset($_SESSION['role']) && $_SESSION['role'] === 'manager';
 
 include 'header.inc';
 include 'nav.inc';
-echo '<link rel="stylesheet" type="text/css" href="styles/styles.css">';
 if (!$isLoggedIn) {
     echo '<div class="leafbytesettings">';
     echo '<p class="leafbytebuttons"><a href="./login.php" class="CustomLink">Login</a></p>';
