@@ -129,6 +129,14 @@ footer{
     margin: 20px auto; /*adds space above and below*/
 }
 
+/*dividers in enhancements.php*/
+.indexdivider4{
+    border: none; /*removes border*/
+    border-top: 2px solid #caba9c; /*gives new border and changes colour*/
+    width: 80%; /*length of the divider*/
+    margin: 10px auto; /*adds space above and below*/
+}
+
 /*buttons in the company information*/
 #indexinfosearch, #indexinfoapply{
     background-color: #8A6240; /*brown backgorund colour*/
