@@ -1,6 +1,13 @@
 <?php
 //starts php session
 session_start();
+require_once("settings.php");
+//establishes connection with db
+$conn2 = mysqli_connect($host, $user, $pwd, $sql_db2);
+//if connection fails then show error
+if (!$conn2){
+    die("Connection failed: " . mysqli_connect_error());
+}
 // checks login and manager status
 $isLoggedIn = isset($_SESSION['username']);
 $isManager = isset($_SESSION['role']) && $_SESSION['role'] === 'manager';

@@ -1,9 +1,9 @@
 <?php
 session_start();
 require_once("settings.php");
-$conn = mysqli_connect($host, $user, $pwd, $sql_db);
+$conn2 = mysqli_connect($host, $user, $pwd, $sql_db2);
 
-if (!$conn){
+if (!$conn2){
     die("Connection failed: " . mysqli_connect_error());
 }
 
@@ -17,10 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 if ($user) {
   $_SESSION['username'] = $user['username'];
-  header("Location: profile.php");
+  header("Location: leafbyte_settings.php");
   exit();
 } else {
-  echo "Incorrect credentials. Please <a href='login.php'>login</a>.";
+  echo "Incorrect credentials. Please <a href='./login.php'>login</a>.";
 }
 }
 ?>
