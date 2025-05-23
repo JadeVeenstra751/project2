@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role'];
-        header("Location: leafbyte_settings.php");
+        header("Location: ./enhancements.php");
         exit();
     }
 }
