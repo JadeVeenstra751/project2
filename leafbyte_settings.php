@@ -12,7 +12,7 @@ include 'header.inc'; ?>
 </head>
 
 <body>
-<!--includes nav.inc
+<!--includes nav.inc!-->
 <?php include 'nav.inc';
 
 if (!$isLoggedIn) {//if user not logged in then
