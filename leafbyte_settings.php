@@ -13,8 +13,10 @@ include 'header.inc'; ?>
 
 if (!$isLoggedIn) {
     echo '<section id="settingsleafbyte">';
+    echo '<div class="center-login">';
     echo '<p><a id="indexinfoapply" href="/login.php">Login</a></p>';
     echo '</div>';
+    echo '</section>';
 } else {
     echo '<p>Welcome, ' . htmlspecialchars($_SESSION['username']) . '!</p>';
     echo '<p class="leafbytebuttons"><a href="./logout.php" class="CustomLink">Logout</a></p>';

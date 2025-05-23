@@ -135,6 +135,17 @@ footer{
     padding: 0.75em 1.28em; /*adds padding to the hover*/
 }
 
+.center-login {
+    text-align: center; /*centre the inline element inside*/
+    margin: 2em 0; /*some vertical spacing*/
+}
+
+.center-login a#indexinfoapply {
+    font-size: 1.3em; /*bigger font*/
+    padding: 1em 2em; /*bigger clickable area*/
+    display: inline-block; /*ensure width applies*/
+}
+
 /*section*/
 section a{
     text-decoration: none; /*no underline for hyperlinks*/
