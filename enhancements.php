@@ -31,7 +31,7 @@ if (!$isLoggedIn) {//if user not logged in then
     echo '</div>';
 } else {
     echo '<p>Welcome, ' . htmlspecialchars($_SESSION['username']) . '!</p>';
-    echo '<p class="leafbytebuttons"><a href="./logout.php" class="CustomLink">Logout</a></p>';
+    echo '<p class="leafbytebuttons"><a href="./logout_process.php" class="CustomLink">Logout</a></p>';
     if ($isManager) {
         echo '<p class="leafbytebuttons"><a href="./manage.php" class="CustomLink">Manage</a></p>';
     }
