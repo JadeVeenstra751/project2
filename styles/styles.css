@@ -14,8 +14,8 @@
 .login-form {
   padding: 20px; /*padding around content*/
   border-radius: 8px; /*rounding*/
-  width: 300px;
-  margin: 0 auto;
+  width: 300px; /*fixed width*/
+  margin: 0 auto; /*centres it*/
 }
 
 /*body for login page*/
