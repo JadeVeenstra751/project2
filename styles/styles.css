@@ -260,7 +260,7 @@ textarea:hover{
 
 /*formatting for body*/
 .about{
-    background-color: #CABA9C;/*adds back ground colour*/
+    background-color: #caba9c;/*adds back ground colour*/
     padding-bottom: 4em; /*ensures that sections will not overlap with fixed footer*/
     color: #351e0f;
 }
