@@ -12,11 +12,9 @@ include 'header.inc'; ?>
 <?php include 'nav.inc';
 
 if (!$isLoggedIn) {
-    echo '<section id="settingsleafbyte">';
-    echo '<div class="center-login">';
-    echo '<p><a id="indexinfoapply" href="/login.php">Login</a></p>';
+    echo '<div style="text-align:center; margin: 2em 0;">';
+    echo '<a id="indexinfoapply" href="/login.php" style="padding:1.5em 3em; font-size:1.5em; border-radius:30px; display:inline-block;">Login</a>';
     echo '</div>';
-    echo '</section>';
 } else {
     echo '<p>Welcome, ' . htmlspecialchars($_SESSION['username']) . '!</p>';
     echo '<p class="leafbytebuttons"><a href="./logout.php" class="CustomLink">Logout</a></p>';
