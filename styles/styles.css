@@ -146,6 +146,12 @@ section a:hover, footer a:hover{
     color: #2d441e;/*changes text to dark green*/
 }
 
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
 .login-section {
     width: 320px;
     margin: 5em auto;
