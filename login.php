@@ -6,17 +6,11 @@
 <body>
 <?php include 'nav.inc'; ?>
 
-<section class="login-section">
-    <label for="username" class="login-label">Username:</label>
-    <input type="text" id="username" name="username" class="login-input" required>
-    
-    <label for="password" class="login-label">Password:</label>
-    <input type="password" id="password" name="password" class="login-input" required>
-
-    <input type="submit" value="Login" class="login-button">
-  </form>
-</section>
-
+<form action="process.php" method="post">
+  Username: <input type="text" name="username"><br>
+  Password: <input type="password" name="password"><br>
+  <input type="submit" value="Login">
+  
 <?php include 'footer.inc'; ?>
 </body>
 </html>
