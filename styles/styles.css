@@ -11,7 +11,7 @@
 }
 
 /*nav <a>*/
-nav a, .Customlink {
+nav a{
     text-decoration: none; /*no underline for hyperlinks*/
     background-color: #ab8462; /*changes the background colour to brown*/
     padding: 0.75rem 2.5rem; /*adds padding*/
@@ -22,7 +22,7 @@ nav a, .Customlink {
 }
 
 /*nav <a> hover*/
-nav a:hover, .Customlink:hover {
+nav a:hover {
     background-color: #69944c;/*changes background to light green*/
     border: 3px solid #2d441e;/*changes border to dark green*/
     padding: 0.75rem 2.5rem; /*adds padding to the hover*/
@@ -73,11 +73,10 @@ nav a:hover, .Customlink:hover {
 }
 
 /*hyperlinks and footer colours*/
-footer, footer a{
+.CustomLink, footer, footer a{
     color:#351e0f; /*text is set to brown*/
     text-decoration: none; /*removes the underline from the hyperlinks*/
 }
-
 
 /*formatting for about page Footer*/
 footer{

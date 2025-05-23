@@ -4,6 +4,7 @@ $isLoggedIn = isset($_SESSION['username']);
 $isManager = isset($_SESSION['role']) && $_SESSION['role'] === 'manager';
 
 include 'header.inc';
+echo '<link rel="stylesheet" type="text/css" href="styles/styles.css">';
 if (!$isLoggedIn) {
     echo '<p class="menu"><a href="./login.php" class="CustomLink">Login</a></p>';
 } else {
