@@ -5,10 +5,6 @@
   box-sizing: border-box;
 }
 
-body.settingspage {
-    background-color: #69944c; /* light green */
-}
-
 /* menu is displayed in one line*/
 .menu{
     display: inline-block;
