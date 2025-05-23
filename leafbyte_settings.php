@@ -1,4 +1,9 @@
 <?php
+//starts php session
+session_start();
+// checks login and manager status
+$isLoggedIn = isset($_SESSION['username']);
+$isManager = isset($_SESSION['role']) && $_SESSION['role'] === 'manager';
 
 //includes header.inc
 include 'header.inc'; ?>
