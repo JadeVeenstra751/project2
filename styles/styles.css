@@ -11,7 +11,7 @@
 }
 
 /*nav <a>*/
-nav a, .leafbytesettings a {
+nav a{
     text-decoration: none; /*no underline for hyperlinks*/
     background-color: #ab8462; /*changes the background colour to brown*/
     padding: 0.75rem 2.5rem; /*adds padding*/
@@ -22,7 +22,7 @@ nav a, .leafbytesettings a {
 }
 
 /*nav <a> hover*/
-nav a:hover .leafbytesettings a:hover{
+nav a:hover{
     background-color: #69944c;/*changes background to light green*/
     border: 3px solid #2d441e;/*changes border to dark green*/
     padding: 0.75rem 2.5rem; /*adds padding to the hover*/
@@ -117,7 +117,7 @@ footer{
 }
 
 /*buttons in the company information*/
-#indexinfosearch, #indexinfoapply {
+#indexinfosearch, #indexinfoapply, .leafbytesettings{
     background-color: #8A6240; /*brown backgorund colour*/
     padding: 0.75em 1.25em; /*adds padding*/
     border-radius: 25px; /*border is rounded*/
@@ -129,7 +129,7 @@ footer{
 }
 
 /*indexinfobuttons hover*/
-#indexinfosearch:hover, #indexinfoapply:hover {
+#indexinfosearch:hover, #indexinfoapply:hover, .leafbytesettings a:hover{
     background-color: #69944c; /*changes background to light green*/
     border: 3px solid #2d441e; /*changes border to dark green*/
     padding: 0.75em 1.28em; /*adds padding to the hover*/
