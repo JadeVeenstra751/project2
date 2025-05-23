@@ -146,6 +146,17 @@ section a:hover, footer a:hover{
     color: #2d441e;/*changes text to dark green*/
 }
 
+.login-form {
+  padding: 20px;
+  background-color: #a97c50; /* light brown */
+  border-radius: 20px;
+  width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 /* WILL STEVENS*/
 /*css for apply.html along with phone resize and global fieldset css*/
 
