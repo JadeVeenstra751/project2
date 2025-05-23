@@ -5,8 +5,8 @@
   box-sizing: border-box;
 }
 
-.settingspage{
-    background-color: #69944c;/*changes background to light green*/
+body.settingspage {
+    background-color: #69944c; /* light green */
 }
 
 /* menu is displayed in one line*/
