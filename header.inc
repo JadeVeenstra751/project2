@@ -8,4 +8,4 @@
     <meta name="description" content="Home Page for LeafByte Tech">
     <!--keywords for the page -->
     <meta name="keywords" content="HTML, LeafByte Tech, Technology, IT, Jobs, Apply, Apply for a Job, Application, Software, Developer, Engineer">
-    <link rel="stylesheet" href="styles.css">;
+    <link rel="stylesheet" href="styles.css">
