@@ -35,6 +35,7 @@ if (!$isLoggedIn) {//if user not logged in then
     echo '<h1>Welcome, ' . htmlspecialchars($_SESSION['username']) . '!</h1>';
     echo '<a id="indexinfoapply" href="./logout_process.php" class="CustomLink">Logout</a>';
     if ($isManager) {
+    echo  '<hr class="indexdivider1">';
         echo '<a id="indexinfoapply" href="./manage.php" class="CustomLink">Manage</a>';
     }
     echo '</div>';
