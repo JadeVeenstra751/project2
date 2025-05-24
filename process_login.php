@@ -27,36 +27,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //gets result and gets user data
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
-    }
-}
 
-    if ($user) {
-    // Check password hashing etc (your existing code here)
-    if (strpos($user['password'], '$2y$') === 0) {
-        $valid = password_verify($input_password, $user['password']);
+    if (!$user) {
+        //failed login
+        echo "Incorrect credentials. Please <a href='./login.php'>login</a>.";
     } else {
-        $valid = ($input_password === $user['password']);
-        if ($valid) {
-            $newHash = password_hash($input_password, PASSWORD_DEFAULT);
-            $updateStmt = $conn2->prepare("UPDATE user SET password = ? WHERE username = ?");
-            $updateStmt->bind_param("ss", $newHash, $input_username);
-            $updateStmt->execute();
-            $updateStmt->close();
-        }
-    }
-
-    if ($valid) {
+        //else if login successful, go to enhancements.php
         $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role'];
         header("Location: ./enhancements.php");
         exit();
-    } else {
-        echo "Incorrect credentials. Please <a href='./login.php'>login</a>.";
-        exit();
     }
-
-} else {
-    // user not found
-    echo "Incorrect credentials. Please <a href='./login.php'>login</a>.";
-       exit();
+    
+    //closes statement
+       $stmt->close();
+    } else {
+        //prepare error
+        die("Prepare failed: " . $conn2->error);
+    }
 }
+?>
