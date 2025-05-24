@@ -23,9 +23,12 @@ include 'header.inc'; ?>
 <!--includes nav.inc!-->
 <?php include 'nav.inc';
 
-//if not logged in, then show login button that will direct to login page
+//if not logged in, then show buttons that will direct to login page or sign up page
 if (!isset($_SESSION['username'])) {
     echo '<div class="centered-container">';
+    //signup button
+    echo '<a id="indexinfoapply" href="./signup.php" class="CustomLink">Sign Up</a>';
+    //login button
     echo '<a id="indexinfoapply" href="./login.php" class="CustomLink">Login</a>';
     echo '</div>';
 } else {
@@ -36,12 +39,15 @@ if (!isset($_SESSION['username'])) {
     //if the user has the "manager" role then the user is able to access 2 new buttons: manage and create a new account
     if ($isManager) {
         echo '<hr class="indexdivider4">';
+        //manage button
         echo '<a id="indexinfoapply" href="./manage.php" class="CustomLink">Manage</a>';
         echo '<hr class="indexdivider4">';
+        //create new account button
         echo '<a id="indexinfoapply" href="./accountcreation.php" class="CustomLink">Create a New Account</a>';
     }
     echo '</div>';
 }
+//include the fotter
 include 'footer.inc';
 ?>
 </body>
