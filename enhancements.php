@@ -17,6 +17,15 @@
     <section>
         <h3>2. Create a manager registration page with server side validation requiring unique username and a password rule, and store this information in a table.</h3>
         <p>BY Jade Veenstra</p>
+        <p>A page on leafbyte_settings.php (when logged in as a manager) has a button that can direct the user
+           to another php page named manageraccount_creation.php. This is where the manager can register a new user
+           or new manager and sign them up to the website. To ensure server side validation, an SQL query is 
+           implemented to check if the username already exists in the database, making sure that every username is unique. 
+           Furthermore, a pattern of a required amount of characters, special characters, letters and numbers have 
+           been implemented into the code for sign up to ensure the manager creates a unique password. Then,
+           once the information has been inserted by the manager, it stores the user/manager data into an SQL table.
+        </p>
+
     </section>
 
     <section>
