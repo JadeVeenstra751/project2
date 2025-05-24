@@ -30,6 +30,7 @@
             <input type="radio" id="unit_2" name="unit" value="COS60004" required>
             <label for="unit_2">Manager</label>
         </fieldset>
+        <hr class="indexdivider5">
       <!-- submit button -->
       <input type="submit" value="Sign Up">
     </div>
