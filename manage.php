@@ -7,9 +7,7 @@
 <body>
 <h1>EOI Management</h1>
 <form method="post">
-    <h3>List All EOIs</h3>
-    <hr class="indexdivider4">
-    <hr class="indexdivider4">
+    <h3>List All EOIs</h3><br>
     <input type="submit" name="list_all" value="List All EOIs"><br><br>
 
     <h3>List EOIs by Job Reference Number</h3>
