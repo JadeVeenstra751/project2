@@ -1,10 +1,9 @@
-<!--by jade veenstra!-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Manage EOIs</title>
-</head>
+<!--by jade veenstra!-->\
+<?php include 'header.inc'; ?>
+<meta name="author" content="Jade Veenstra">
+<title>LeafByte Tech Manage EOIs</title>
+<!-- includes nav.inc -->
+<?php include 'nav.inc'; ?>
 <body>
 <h1>EOI Management</h1>
 <form method="post">
@@ -28,5 +27,9 @@
     <input type="text" name="eoi_id" placeholder="EOI ID">
     <input type="text" name="new_status" placeholder="New Status">
     <input type="submit" name="update_status" value="Update Status"><br><br>
+<br>
 </form>
-<hr>
+<!--includes nav!-->
+<?php include 'nav.inc'; ?>
+</body>
+</html>
