@@ -28,6 +28,7 @@ if (!isset($_SESSION['username'])) {
     echo '<div class="centered-container">';
     //signup button
     echo '<a id="indexinfoapply" href="./signup.php" class="CustomLink">Sign Up</a>';
+    echo '<hr class="indexdivider4">';
     //login button
     echo '<a id="indexinfoapply" href="./login.php" class="CustomLink">Login</a>';
     echo '</div>';
