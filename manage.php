@@ -141,12 +141,16 @@ if (!$conn2) {
         $first = $_POST['first_name'] ?? ''; // gets first name input or empty string
         $last = $_POST['last_name'] ?? ''; // gets last name input or empty string
 
-         // query to select from eois table
-        $query = "SELECT * FROM eois WHERE 1=1";
-        $params = []; // array to hold params for binding
-        $types = ""; // string to hold types of params
-
         //CHAT.GPT ASSISTANCE FROM HERE//
+      //only continue if at least one input is provided
+    if (empty($first) && empty($last)) {
+        echo "Please enter at least a first name or last name to search.";
+    } else {
+      // query to select from eois table
+        $query = "SELECT * FROM eois WHERE 1=1";
+        $params = [];// array to hold params for binding
+        $types = "";// string to hold types of params
+
          // add condition for first name if provided
         if (!empty($first)) {
             $query .= " AND `First Name` = ?";
@@ -202,6 +206,8 @@ if (!$conn2) {
         }
         mysqli_stmt_close($stmt);
     }
+
+  }
     ?>
   </fieldset>
 
@@ -235,6 +241,7 @@ if (!$conn2) {
     }
     ?>
   </fieldset>
+  <br>
   <br>
   <br>
 </form>
