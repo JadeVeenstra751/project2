@@ -31,6 +31,9 @@ if (!isset($_SESSION['username'])) {
     echo '<hr class="indexdivider4">';
     //login button
     echo '<a id="indexinfoapply" href="./login.php" class="CustomLink">Login</a>';
+    echo '<hr class="indexdivider4">';
+    //enhancements page button
+    echo '<a id="indexinfoapply" href="./enhancements.php" class="CustomLink">Login</a>';
     echo '</div>';
 } else {
     //else if logged in, then it will show a welcome message and logout button
@@ -45,8 +48,11 @@ if (!isset($_SESSION['username'])) {
         echo '<hr class="indexdivider4">';
         //create new account button
         echo '<a id="indexinfoapply" href="./manageraccount_creation.php" class="CustomLink">Create a New Account</a>';
+        echo '<hr class="indexdivider4">';
+        //enhancements page button
+        echo '<a id="indexinfoapply" href="./enhancements.php" class="CustomLink">Login</a>';
+        echo '</div>';
     }
-    echo '</div>';
 }
 //include the fotter
 include 'footer.inc';

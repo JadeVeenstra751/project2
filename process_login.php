@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];
 
-                // redirects to enhancements.php
+                // redirects to leafbyte_settings.php
                 header("Location: ./leafbyte_settings.php");
                 exit();
             } else {
