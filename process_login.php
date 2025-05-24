@@ -32,6 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //failed login
         echo "Incorrect credentials. Please <a href='./login.php'>login</a>.";
     } else {
+         // verify password using password_verify()
+        if ($user && password_verify($input_password, $user['password'])) {
         //else if login successful, go to enhancements.php
         $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role'];
