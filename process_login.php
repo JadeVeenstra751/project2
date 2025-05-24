@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //gets result and gets user data
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
-        
+
     if ($user) {
             // Check if password is hashed (bcrypt hash starts with '$2y$')
             if (strpos($user['password'], '$2y$') === 0) {
@@ -67,5 +67,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //prepare error
         die("Prepare failed: " . $conn2->error);
     }
-}
 ?>
