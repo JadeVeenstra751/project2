@@ -3,9 +3,9 @@
     <?php include 'header.inc'; ?>
     <meta name="author" content="Jade Veenstra">
     <title>LeafByte Tech Manager Sign-Up Page</title>
+    </head>
     <!-- includes nav.inc -->
     <?php include 'nav.inc'; ?>
-    </head>
     <!-- declares a class for signup body -->
     <body class="loginbody">
     <form action="manageraccount_creation_process.php" method="post">
