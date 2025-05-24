@@ -8,6 +8,7 @@
 <h1>EOI Management</h1>
 <form method="post">
     <h3>List All EOIs</h3>
+    <hr class="indexdivider4">
     <input type="submit" name="list_all" value="List All EOIs"><br><br>
 
     <h3>List EOIs by Job Reference Number</h3>
@@ -15,6 +16,7 @@
     <input type="submit" name="list_by_job" value="List EOIs"><br><br>
 
     <h3>List EOIs by Applicant Name</h3>
+    <hr class="indexdivider4">
     <input type="text" name="first_name" placeholder="First Name">
     <input type="text" name="last_name" placeholder="Last Name">
     <input type="submit" name="list_by_applicant" value="List EOIs"><br><br>
