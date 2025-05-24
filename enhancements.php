@@ -13,7 +13,7 @@
         <h3>1. Provide the manager with the ability to select the field on which to sort the order in which the EOI records are displayed</h3>
         <p>BY Will Stevens</p>
     </section>
-
+<br>
     <section>
         <h3>2. Create a manager registration page with server side validation requiring unique username and a password rule, and store this information in a table.</h3>
         <p>BY Jade Veenstra</p>
@@ -27,12 +27,12 @@
         </p>
 
     </section>
-
+<br>
     <section>
         <h3>3. Control access to manage.php by checking username and password</h3>
         <p>BY Jade Veenstra</p>
     </section>
-
+<br>
     <section>
         <h3>4. Have access to the web site disabled for user a period of time on, say, three or more invalid login attempts</h3>
         <p>BY Muhammad Taki</p>
