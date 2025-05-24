@@ -18,7 +18,11 @@ if (!$conn2) {
 // get and sanitise form data through post
 $username = trim($_POST['username']);
 $password = trim($_POST['password']);
-$role = $_POST['role'];
+$role = trim($_POST['role']);
+
+if ($role !== 'user' && $role !== 'manager') {
+    die("Invalid role selected.");
+}
 
 //(CHAT.GPT assistance)
 // Server-side password rule: min 8 chars, at least one letter and one number
