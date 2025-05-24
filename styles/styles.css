@@ -18,8 +18,8 @@
   margin: 0 auto; /*centres it*/
 }
 
-/*body for login page*/
-.loginbody{
+/*body for login and manage page*/
+.loginbody, .manage{
     background-color: #ab8462; /*changes the background colour to tan/brwon*/
 }
 
