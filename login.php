@@ -16,11 +16,11 @@
     <hr class="indexdivider5">
     <!--username input for user!-->
     <label for="username">Username:</label>
-    <input type="text" name="username" id="username">
+    <input type="text" name="username" id="username" required>
     <hr class="indexdivider5">
     <!--password input for user!-->
     <label for="password">Password:</label>
-    <input type="password" name="password" id="password">
+    <input type="password" name="password" id="password" required>
     <hr class="indexdivider5">
     <!--submit button!-->
     <input type="submit" value="Login">
