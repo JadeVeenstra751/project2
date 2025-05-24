@@ -17,8 +17,8 @@ $role = isset($_POST['role']) ? $_POST['role'] : 'user';
 
 //(CHAT.GPT assistance)
 // Server-side password rule: min 8 chars, at least one letter and one number
-if (!preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/', $password)) {
-    die("Password must be at least 8 characters long and include at least one letter and one number.");
+if (!preg_match('/^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$/', $password)) {
+    die("Password must be at least 8 characters long and include at least one letter, one number, and one special character.");
 }
 
 // checks if username already exists
@@ -52,8 +52,8 @@ mysqli_stmt_bind_param($stmt, "sss", $username, $hashed_password, $role);
 
 //if successful the execute
 if (mysqli_stmt_execute($stmt)) {
-    //display message and let the user login
-    echo "Signup successful! You can now <a href='./login.php'>login</a>.";
+    //display message and let the return to manager page
+    echo "Signup successful! You can now  You can now return to the <a href='./enhancements.php'>Manager page</a>.";
 } else {
     //display message if unsuccessful
     echo "Signup failed. Try again.";
