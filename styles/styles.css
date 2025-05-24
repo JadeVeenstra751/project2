@@ -9,25 +9,6 @@
 .menu{
     display: inline-block;
 }
-
-body.loginbody {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #b5835a; /* matches your theme */
-}
-
-/*login form selector container*/
-.login-form {
-  padding: 20px; /*padding around content*/
-  border-radius: 8px; /*rounding*/
-  width: 300px; /*fixed width*/
-  margin: 0 auto; /*centres it*/
-}
-
 /*body for login and manage page*/
 .loginbody{
     background-color: #ab8462; /*changes the background colour to tan/brwon*/

@@ -2,7 +2,6 @@
 <?php include 'header.inc'; ?>
 <meta name="author" content="Jade Veenstra">
 <title>LeafByte Tech Manage EOIs</title>
-<?php include 'nav.inc'; ?>
 <?php
 //start new session
 session_start();
@@ -17,6 +16,7 @@ if (!$conn2) {
 ?>
 <!--uses login body class because creating a new one does not update it for some reason-->
 <body class="loginbody">
+<?php include 'nav.inc'; ?>
 <form method="post">
   <br><br>
   <!--a field where the manager can press a button to list all EOIs!-->
