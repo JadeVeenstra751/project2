@@ -4,7 +4,7 @@
 <title>LeafByte Tech Manage EOIs</title>
 <!-- includes nav.inc -->
 <?php include 'nav.inc'; ?>
-<body class="manage">
+<body class="loginandmanagebody">
 <form method="post">
     <br><br>
   <fieldset>

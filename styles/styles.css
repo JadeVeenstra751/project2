@@ -19,7 +19,7 @@
 }
 
 /*body for login and manage page*/
-.loginbody, .manage{
+.loginbodyandmanage{
     background-color: #ab8462; /*changes the background colour to tan/brwon*/
 }
 
