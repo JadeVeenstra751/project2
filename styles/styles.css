@@ -121,6 +121,15 @@ footer{
     border: 2px solid #8A6240; /*adds border to the section*/
 }
 
+.centered-container {
+            text-align: center;
+            margin: 9em 0;
+        }
+
+.centered-container.logged-in {
+            margin: 2em 0;
+        }
+
 /*dividers in indexcompanyinfo*/
 .indexdivider1, .indexdivider2, .indexdivider3{
     border: none; /*removes border*/
