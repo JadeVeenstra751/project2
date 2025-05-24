@@ -15,7 +15,7 @@ include 'settings.php';
     <aside id="aside_jobs">
         <h3>Benefits of working at </h3>
         <ul>
-            <!--Use of GenAI (Gemini), -->
+            <!--Use of GenAI (Gemini), prompt: Write me multiple benefits working at my madeup company, make it up-->
             <li><b>Flexible Work Hours</b> – We believe in results, not rigid schedules.</li>
             <li><b>Remote & Hybrid Options</b> – Work from anywhere</li>
             <li><b>Learning & Development</b> – Access to online courses, and certifications</li>
