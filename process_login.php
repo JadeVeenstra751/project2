@@ -50,16 +50,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
     if (!$user) {
+        //failed login
+        echo "Incorrect credentials. Please <a href='./login.php'>login</a>.";
+        } else {
         //else if login successful, go to enhancements.php
         $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role'];
         header("Location: ./enhancements.php");
-    } else {
-         //failed login
-        echo "Incorrect credentials. Please <a href='./login.php'>login</a>.";
-        exit();
     }
-    }
+}
 
     //closes statement
        $stmt->close();
