@@ -12,6 +12,8 @@
 <form action="process_login.php" method="post">
   <!--class for login-form!-->
   <div class="login-form">
+    <h2>Log In</h2>
+    <hr class="indexdivider5">
     <!--username input for user!-->
     <label for="username">Username:</label>
     <input type="text" name="username" id="username">

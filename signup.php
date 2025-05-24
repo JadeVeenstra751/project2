@@ -13,6 +13,7 @@
     <!-- class for signup-form -->
     <div class="login-form">
       <h2>Create an Account</h2>
+      <hr class="indexdivider5">
       <!-- username input for user -->
       <label for="username">Choose a Username:</label>
       <input type="text" name="username" id="username" required>
