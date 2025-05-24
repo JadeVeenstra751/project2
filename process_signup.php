@@ -21,7 +21,7 @@ if ($password !== $confirm_password) {
 
 // (CHAT.GPT assistance) checks if username already exists
 $check_query = "SELECT * FROM users WHERE username = ?";
-$check_stmt = mysqli_prepare($conn, $check_query);
+$check_stmt = mysqli_prepare($conn2, $check_query);
 mysqli_stmt_bind_param($check_stmt, "s", $username);
 mysqli_stmt_execute($check_stmt);
 mysqli_stmt_store_result($check_stmt);
@@ -37,7 +37,7 @@ $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 // prepared statement to prevent SQL injection
 $query = "INSERT INTO users (username, password) VALUES (?, ?)";
-$stmt = mysqli_prepare($conn, $query);
+$stmt = mysqli_prepare($conn2, $query);
 mysqli_stmt_bind_param($stmt, "ss", $username, $hashed_password);
 
 // execute the query
@@ -51,5 +51,5 @@ if (mysqli_stmt_execute($stmt)) {
 
 // closes connections
 mysqli_stmt_close($stmt);
-mysqli_close($conn);
+mysqli_close($conn2);
 ?>
