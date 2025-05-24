@@ -15,17 +15,17 @@
     </section>
 
     <section>
-        <h2>2. Create a manager registration page with server side validation requiring unique username and a password rule, and store this information in a table.</h2>
+        <h3>2. Create a manager registration page with server side validation requiring unique username and a password rule, and store this information in a table.</h3>
         <p>BY Jade Veenstra</p>
     </section>
 
     <section>
-        <h2>3. Control access to manage.php by checking username and password</h2>
+        <h3>3. Control access to manage.php by checking username and password</h3>
         <p>BY Jade Veenstra</p>
     </section>
 
     <section>
-        <h2>4. Prepared Statements to Prevent SQL Injection</h2>
+        <h3>4. Prepared Statements to Prevent SQL Injection</h3>
         <p>BY Muhammad Taki</p>
     </section>
 </main>
