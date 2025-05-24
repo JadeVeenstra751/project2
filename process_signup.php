@@ -1,0 +1,55 @@
+<?php
+require_once("settings.php");
+
+$conn2 = mysqli_connect($host, $username, $password, $sql_db2);
+
+// check connection
+if (!$conn2) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Get and sanitize form data
+$username = trim($_POST['username']);
+$password = trim($_POST['password']);
+
+// checks if passwords match
+if ($password !== $confirm_password) {
+    //if not then exist
+    echo "Passwords do not match.";
+    exit;
+}
+
+// (CHAT.GPT assistance) checks if username already exists
+$check_query = "SELECT * FROM users WHERE username = ?";
+$check_stmt = mysqli_prepare($conn, $check_query);
+mysqli_stmt_bind_param($check_stmt, "s", $username);
+mysqli_stmt_execute($check_stmt);
+mysqli_stmt_store_result($check_stmt);
+
+if (mysqli_stmt_num_rows($check_stmt) > 0) {
+    echo "Username already taken. Please choose another.";
+    exit;
+}
+mysqli_stmt_close($check_stmt);
+
+// hash the password
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+// prepared statement to prevent SQL injection
+$query = "INSERT INTO users (username, password) VALUES (?, ?)";
+$stmt = mysqli_prepare($conn, $query);
+mysqli_stmt_bind_param($stmt, "ss", $username, $hashed_password);
+
+// execute the query
+if (mysqli_stmt_execute($stmt)) {
+    //if successful redirect to login page
+    echo "Signup successful! You can now <a href='./login.php'>login</a>.";
+} else {
+    //else prompt the user to try again.
+    echo "Signup failed. Try again.";
+}
+
+// closes connections
+mysqli_stmt_close($stmt);
+mysqli_close($conn);
+?>
