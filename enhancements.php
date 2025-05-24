@@ -1,3 +1,4 @@
+<!--by jade veenstra-->
 <!-- enhancements.php -->
 <?php include 'header.inc'; ?>
 <meta name="author" content="Jade Veenstra, Will Stevens, Muhummad Taki">

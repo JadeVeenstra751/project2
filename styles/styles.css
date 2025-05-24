@@ -10,6 +10,16 @@
     display: inline-block;
 }
 
+body.loginbody {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b5835a; /* matches your theme */
+}
+
 /*login form selector container*/
 .login-form {
   padding: 20px; /*padding around content*/
