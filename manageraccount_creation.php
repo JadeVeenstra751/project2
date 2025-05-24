@@ -22,7 +22,7 @@
         <!-- adding a pattern for the password must have at least one letter, one digit, one special cahracter and a minimum of 8 characters. CHAT.GPT was uesd to generate this pattern!-->
         <input type="password" name="password" id="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$" title="Password must be at least 8 characters, include at least one letter, one number and one special character." required>
         <hr class="indexdivider5">
-        <fieldset>
+        <fieldset?>
                 <legend>Choose a Role:</legend>
                 <input type="radio" id="role_user" name="role" value="user" required>
                 <label for="role_user">User</label>
