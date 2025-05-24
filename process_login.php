@@ -29,15 +29,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = $result->fetch_assoc();
 
     if (!$user) {
-        //failed login
-        echo "Incorrect credentials. Please <a href='./login.php'>login</a>.";
-    } else {
          // verify password using password_verify()
         if ($user && password_verify($input_password, $user['password'])) {
         //else if login successful, go to enhancements.php
         $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role'];
         header("Location: ./enhancements.php");
+    } else {
+         //failed login
+        echo "Incorrect credentials. Please <a href='./login.php'>login</a>.";
         exit();
     }
 
