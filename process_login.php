@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $input_username = trim($_POST['username']);
     $input_password = trim($_POST['password']);
     
-    // Prepare statement WITHOUT checking password here (we fetch hashed password first)
+    // prepares statement without checking password
     $stmt = $conn2->prepare("SELECT * FROM user WHERE username = ?");
     if ($stmt) {
         $stmt->bind_param("s", $input_username);
@@ -25,19 +25,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result = $stmt->get_result();
         $user = $result->fetch_assoc();
 
+        //assistance from CHAT.GPT and week 11 modules
         if (!$user) {
-            // No such user found
+            // if login fails
             echo "Incorrect credentials. Please <a href='./login.php'>login</a>.";
         } else {
-            // Check if stored password is hashed
+            // else if correct, check password
             if (strpos($user['password'], '$2y$') === 0) {
-                // Password is hashed: verify with password_verify
+                // if password is hashed, verify with password_verify
                 $valid = password_verify($input_password, $user['password']);
             } else {
-                // Password stored in plain text (not recommended)
+                // otherwise password stored in plain text
                 $valid = ($input_password === $user['password']);
                 
-                // If valid, rehash password and update DB
+                // if valid, rehash password and update db
                 if ($valid) {
                     $newHash = password_hash($input_password, PASSWORD_DEFAULT);
                     $updateStmt = $conn2->prepare("UPDATE user SET password = ? WHERE username = ?");
@@ -46,25 +47,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $updateStmt->close();
                 }
             }
+            //CHAT.GPT assitance ends here
 
             if ($valid) {
-                // Prevent session fixation attacks by regenerating session ID after login
+                // prevents session fixation attacks by regenerating session id
                 session_regenerate_id(true);
 
-                // Set session variables
+                // setting session variables
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];
 
-                // Redirect to enhancements.php
+                // redirects to enhancements.php
                 header("Location: ./enhancements.php");
                 exit();
             } else {
-                // Password incorrect
+                // fail if password is incorrected
                 echo "Incorrect credentials. Please <a href='./login.php'>login</a>.";
             }
         }
+        //close statement
         $stmt->close();
     } else {
+        //otherwise fail and show error
         die("Prepare failed: " . $conn2->error);
     }
 }
