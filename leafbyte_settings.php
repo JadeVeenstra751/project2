@@ -2,6 +2,7 @@
 <?php
 //starts new session
 session_start();
+//includes db settings
 require_once("settings.php");
 //establishes connection with db
 $conn2 = mysqli_connect($host, $user, $pwd, $sql_db2);

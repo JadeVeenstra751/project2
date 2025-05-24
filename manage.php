@@ -46,8 +46,6 @@
     <br><br>
     <input type="submit" name="update_status" value="Update Status">
   </fieldset>
-
-</form>
 <br>
 <br>
 </form>
@@ -55,3 +53,66 @@
 <?php include 'footer.inc'; ?>
 </body>
 </html>
+
+<?php
+//starts new session
+session_start();
+//includes db settings
+require_once("settings.php");
+$conn2 = mysqli_connect($host, $user, $pwd, $sql_db2);
+if (!$conn2) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+function sanitize_output($data) {
+    return htmlspecialchars($data);
+}
+
+echo '<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="author" content="Jade Veenstra">
+<title>LeafByte Tech Manage EOIs</title>
+</head><body>';
+
+include 'header.inc';
+include 'nav.inc';
+
+echo '<h1>EOI Management</h1>';
+
+// 1) List All EOIs
+if (isset($_POST['list_all'])) {
+    $sql = "SELECT * FROM eoi";
+    $result = mysqli_query($conn2, $sql);
+    if ($result && mysqli_num_rows($result) > 0) {
+        echo "<h3>All EOIs</h3>";
+        echo "<table border='1' cellpadding='5'>";
+        echo "<tr>
+                <th>EOInumber</th>
+                <th>Job reference number</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Skills</th>
+                <th>Other Skills</th>
+                <th>Status</th>
+              </tr>";
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<tr>
+                    <td>" . sanitize_output($row['EOInumber']) . "</td>
+                    <td>" . sanitize_output($row['Job reference number']) . "</td>
+                    <td>" . sanitize_output($row['First Name']) . "</td>
+                    <td>" . sanitize_output($row['Last Name']) . "</td>
+                    <td>" . sanitize_output($row['Email']) . "</td>
+                    <td>" . sanitize_output($row['Phone Number']) . "</td>
+                    <td>" . sanitize_output($row['Skills']) . "</td>
+                    <td>" . sanitize_output($row['Other Skills']) . "</td>
+                    <td>" . sanitize_output($row['Status']) . "</td>
+                  </tr>";
+        }
+        echo "</table><br>";
+    } else {
+        echo "No EOIs found.<br>";
+    }
+    mysqli_free_result($result);
+}
