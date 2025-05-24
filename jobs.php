@@ -25,16 +25,16 @@ include 'settings.php';
 
     <?php
     // Establish database connection
-    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+    $conn2 = mysqli_connect($host, $user, $pwd, $sql_db2);
 
     // Check connection
-    if (!$conn) {
+    if (!$conn2) {
         die("Connection failed: " . mysqli_connect_error()); // Stop on connection error
     }
 
     // SQL query to fetch all jobs
     $sql = "SELECT * FROM jobs";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn2, $sql_db2);
 
     // Loop through each job record and display it
     while ($row = mysqli_fetch_assoc($result)) {
@@ -62,7 +62,7 @@ include 'settings.php';
     }
 
     // close connection
-    mysqli_close($conn);
+    mysqli_close($conn2);
     ?>
 
     <?php include 'footer.inc';?>
