@@ -145,7 +145,7 @@ footer{
     margin: 10px auto; /*adds space above and below*/
 }
 
-/*dividers in signup.php*/
+/*dividers in signup.php and login.php*/
 .indexdivider5{
     border: none; /*removes border*/
     border-top: 2px solid #ab8462; /*gives new border and changes colour*/
