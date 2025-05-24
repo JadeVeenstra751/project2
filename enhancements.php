@@ -19,7 +19,7 @@ include 'header.inc'; ?>
     <title>Settings Page</title>
 </head>
 
-<body>
+<body class = "enhancementsbody">
 <!--includes nav.inc!-->
 <?php include 'nav.inc';
 
@@ -39,4 +39,7 @@ if (!isset($_SESSION['username'])) {
     }
     echo '</div>';
 }
+include 'footer.inc';
 ?>
+</body>
+</html>

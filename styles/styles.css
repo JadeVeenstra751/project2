@@ -130,12 +130,9 @@ footer{
             margin: 2em 0;
         }
 
-/*dividers in indexcompanyinfo*/
-.indexdivider1, .indexdivider2, .indexdivider3{
-    border: none; /*removes border*/
-    border-top: 2px solid #8A6240; /*gives new border and changes colour*/
-    width: 80%; /*length of the divider*/
-    margin: 20px auto; /*adds space above and below*/
+/*body for enhancements.php*/
+.enhancementsbody{
+    background-color: #caba9c; /*background colour*/
 }
 
 /*dividers in enhancements.php*/
@@ -144,6 +141,14 @@ footer{
     border-top: 2px solid #caba9c; /*gives new border and changes colour*/
     width: 80%; /*length of the divider*/
     margin: 10px auto; /*adds space above and below*/
+}
+
+/*dividers in indexcompanyinfo*/
+.indexdivider1, .indexdivider2, .indexdivider3{
+    border: none; /*removes border*/
+    border-top: 2px solid #8A6240; /*gives new border and changes colour*/
+    width: 80%; /*length of the divider*/
+    margin: 20px auto; /*adds space above and below*/
 }
 
 /*buttons in the company information*/
