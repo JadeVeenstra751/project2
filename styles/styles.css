@@ -124,7 +124,7 @@ footer{
 /*container for enhancements before logged in*/
 .centered-container {
             text-align: center; /*aligns to centre*/
-            margin: 10em 0; /*forces the buttons down*/
+            margin: 9em 0; /*forces the buttons down*/
         }
 
 /*container for enhancements after logged in*/
