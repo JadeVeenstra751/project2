@@ -45,6 +45,14 @@
     <section>
         <h3>4. Have access to the web site disabled for user a period of time on, say, three or more invalid login attempts</h3>
         <p>BY Muhammad Taki</p>
+        <p>
+            I have implemented a somewhat security mechanism that locks out user from logging on an account for 10 seconds.
+            It tracks failed login attempts within the user's current session. If the number of incorrect tries reaches 3
+            the account is temporarily locked for a set duration 10 seconds. On succesful login,the attempt counter and lockout status are reset.
+            This can prevent brute force attacks, that is when hackers runs bots to login using multiple combinations. Innitialy,
+            I was going for a db connected login attempt mechanism so the manager can see see which user/s are currently locked out, but due to 
+            time constraint I unfortunatly couldn't.
+        </p>
     </section>
 <br>
 <br>
