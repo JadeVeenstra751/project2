@@ -23,7 +23,7 @@
     <h3>Delete EOIs by Job Reference Number</h3>
     <input type="text" name="job_ref_delete" placeholder="Job Reference Number">
     <input type="submit" name="delete_by_job" value="Delete EOIs"><br><br>
-
+    <hr class="indexdivider5">
     <h3>Change EOI Status</h3>
     <input type="text" name="eoi_id" placeholder="EOI ID">
     <input type="text" name="new_status" placeholder="New Status">
