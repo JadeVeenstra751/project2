@@ -19,8 +19,8 @@
             <hr class="indexdivider5">
         <!-- password input for user -->
         <label for="password">Choose a Password:</label>
-        <!-- adding a pattern for the password !-->
-        <input type="password" name="password" id="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" title="Password must be at least 8 characters, include at least one letter and one number." required>
+        <!-- adding a pattern for the password must have at least one letter, one digit, one special cahracter and a minimum of 8 characters. CHAT.GPT was uesd to generate this pattern!-->
+        <input type="password" name="password" id="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$" title="Password must be at least 8 characters, include at least one letter, one number and one special character." required>
         <hr class="indexdivider5">
         <fieldset?> 
                 <!-- new section for user or manager-->
