@@ -40,12 +40,16 @@ $insert_query = "INSERT INTO user (username, password, role) VALUES (?, ?, ?)";
 $insert_stmt = mysqli_prepare($conn2, $insert_query);
 mysqli_stmt_bind_param($insert_stmt, "sss", $username, $hashed_password, $role);
 
-if (mysqli_stmt_execute($insert_stmt)) {
-    echo "Signup successful! Role stored: $role<br>";
+//if successful the execute
+if (mysqli_stmt_execute($stmt)) {
+    //display message and let the return to manager page
+    echo "Signup successful! You can now  You can now return to the <a href='./enhancements.php'>Manager page</a>.";
 } else {
-    echo "Signup failed: " . mysqli_error($conn2);
+    //display message if unsuccessful
+    echo "Signup failed. Try again.";
 }
 
-mysqli_stmt_close($insert_stmt);
+// closes connections
+mysqli_stmt_close($stmt);
 mysqli_close($conn2);
 ?>
