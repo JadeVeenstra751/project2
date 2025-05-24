@@ -12,13 +12,6 @@ if (!$conn2) {
 $username = trim($_POST['username']);
 $password = trim($_POST['password']);
 
-// checks if passwords match
-if ($password !== $confirm_password) {
-    //if not then exist
-    echo "Passwords do not match.";
-    exit;
-}
-
 // (CHAT.GPT assistance) checks if username already exists
 $check_query = "SELECT * FROM users WHERE username = ?";
 $check_stmt = mysqli_prepare($conn2, $check_query);
