@@ -40,7 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Incorrect credentials. Please <a href='./login.php'>login</a>.";
         exit();
     }
-
+    }
+    
     //closes statement
        $stmt->close();
     } else {
