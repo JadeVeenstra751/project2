@@ -22,16 +22,15 @@
         <!-- adding a pattern for the password must have at least one letter, one digit, one special cahracter and a minimum of 8 characters. CHAT.GPT was uesd to generate this pattern!-->
         <input type="password" name="password" id="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$" title="Password must be at least 8 characters, include at least one letter, one number and one special character." required>
         <hr class="indexdivider5">
-        <fieldset?> 
-                <!-- new section for user or manager-->
+        <fieldset>
                 <legend>Choose a Role:</legend>
-                <!--selection of radio buttons for user to select a unit-->
-                <input type="radio" id="unit_1" name="unit" value="COS10011" required>
-                <label for="unit_1">User</label>
-                <input type="radio" id="unit_2" name="unit" value="COS60004" required>
-                <label for="unit_2">Manager</label>
+                <input type="radio" id="role_user" name="role" value="user" required>
+                <label for="role_user">User</label>
+
+                <input type="radio" id="role_manager" name="role" value="manager" required>
+                <label for="role_manager">Manager</label>
             </fieldset>
-            <hr class="indexdivider5">
+        <hr class="indexdivider5">
         <!-- submit button -->
         <input type="submit" value="Sign Up">
         </div>

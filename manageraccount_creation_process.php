@@ -13,7 +13,7 @@ if (!$conn2) {
 // get and sanitise form data through post
 $username = trim($_POST['username']);
 $password = trim($_POST['password']);
-$role = isset($_POST['role']) ? $_POST['role'] : 'user';
+$role = $_POST['role'];
 
 //(CHAT.GPT assistance)
 // Server-side password rule: min 8 chars, at least one letter and one number
