@@ -21,9 +21,10 @@
            to another php page named manageraccount_creation.php. This is where the manager can register a new user
            or new manager and sign them up to the website. To ensure server side validation, an SQL query is 
            implemented to check if the username already exists in the database, making sure that every username is unique. 
-           Furthermore, a pattern of a required amount of characters, special characters, letters and numbers have 
+           Furthermore, a pattern of a required amount of characters, special characters, letters and numbers has
            been implemented into the code for sign up to ensure the manager creates a unique password. Then,
-           once the information has been inserted by the manager, it stores the user/manager data into an SQL table.
+           once the information has been inserted by the manager, it stores the user/manager data into an SQL table inside
+           a database.
         </p>
 
     </section>

@@ -52,9 +52,6 @@ if (!isset($_SESSION['username'])) {
         //create new account button
         echo '<a id="indexinfoapply" href="./manageraccount_creation.php" class="CustomLink">Create a New Account</a>';
         echo '<hr class="indexdivider4">';
-        //enhancements page button
-        echo '<a id="indexinfoapply" href="./enhancements.php" class="CustomLink">Enhancements Documentation</a>';
-        echo '</div>';
     }
 }
 //include the fotter
