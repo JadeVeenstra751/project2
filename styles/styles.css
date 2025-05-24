@@ -121,13 +121,15 @@ footer{
     border: 2px solid #8A6240; /*adds border to the section*/
 }
 
+/*container for enhancements before logged in*/
 .centered-container {
-            text-align: center;
-            margin: 11em 0;
+            text-align: center; /*aligns to centre*/
+            margin: 10em 0; /*forces the buttons down*/
         }
 
+/*container for enhancements after logged in*/
 .centered-container.logged-in {
-            margin: 2em 0;
+            margin: 2em 0; /*forces the buttons down*/
         }
 
 /*body for enhancements.php*/
