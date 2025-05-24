@@ -25,7 +25,7 @@
     </section>
 
     <section>
-        <h3>4. Prepared Statements to Prevent SQL Injection</h3>
+        <h3>4. Have access to the web site disabled for user a period of time on, say, three or more invalid login attempts</h3>
         <p>BY Muhammad Taki</p>
     </section>
 </main>
