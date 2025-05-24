@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $input_password = trim($_POST['password']);
     
     //preparing SQLusing conn2
-    $stmt = $conn2->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+    $stmt = $conn2->prepare("SELECT * FROM user WHERE username = ? AND password = ?");
     if ($stmt) {
     $stmt->bind_param("ss", $input_username, $input_password);
     $stmt->execute();
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: ./enhancements.php");
         exit();
     }
-    
+
     //closes statement
        $stmt->close();
     } else {
