@@ -1,3 +1,8 @@
+<?php
+var_dump($_POST);
+exit;
+?>
+
 <!--by jade veenstra!-->
 <?php
 require_once("settings.php");
