@@ -44,7 +44,7 @@ if (!isset($_SESSION['username'])) {
         echo '<a id="indexinfoapply" href="./manage.php" class="CustomLink">Manage</a>';
         echo '<hr class="indexdivider4">';
         //create new account button
-        echo '<a id="indexinfoapply" href="./manageraccount_creation_process" class="CustomLink">Create a New Account</a>';
+        echo '<a id="indexinfoapply" href="./manageraccount_creation" class="CustomLink">Create a New Account</a>';
     }
     echo '</div>';
 }
