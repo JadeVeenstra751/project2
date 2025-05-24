@@ -1,4 +1,4 @@
-<!--by jade veenstra!-->\
+<!--by jade veenstra!-->
 <?php include 'header.inc'; ?>
 <meta name="author" content="Jade Veenstra">
 <title>LeafByte Tech Manage EOIs</title>
@@ -30,6 +30,6 @@
 <br>
 </form>
 <!--includes nav!-->
-<?php include 'nav.inc'; ?>
+<?php include 'footer.inc'; ?>
 </body>
 </html>
