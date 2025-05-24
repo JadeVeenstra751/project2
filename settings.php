@@ -1,3 +1,4 @@
+<!--by jade veenstra!-->
 <?php
 $host = "localhost"; //server hostname
 $user = "root";// username for SQL db

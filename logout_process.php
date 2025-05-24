@@ -1,4 +1,6 @@
+<!--by jade veenstra!-->
 <?php
+//starts new session
 session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
     // removes all session variables

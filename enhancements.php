@@ -1,6 +1,6 @@
 <!--by jade veenstra!-->
 <?php
-//starts php session
+//starts new session
 session_start();
 require_once("settings.php");
 //establishes connection with db
@@ -23,14 +23,17 @@ include 'header.inc'; ?>
 <!--includes nav.inc!-->
 <?php include 'nav.inc';
 
+//if not logged in, then show login button that will direct to login page
 if (!isset($_SESSION['username'])) {
     echo '<div class="centered-container">';
     echo '<a id="indexinfoapply" href="./login.php" class="CustomLink">Login</a>';
     echo '</div>';
 } else {
+    //else if logged in, then it will show a welcome message and logout button
     echo '<div class="centered-container logged-in">';
     echo '<h1>Welcome, ' . htmlspecialchars($_SESSION['username']) . '!</h1>';
     echo '<a id="indexinfoapply" href="./logout_process.php" class="CustomLink">Logout</a>';
+    //if the user has the "manager" role then the user is able to access 2 new buttons: manage and create a new account
     if ($isManager) {
         echo '<hr class="indexdivider4">';
         echo '<a id="indexinfoapply" href="./manage.php" class="CustomLink">Manage</a>';

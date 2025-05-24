@@ -1,3 +1,4 @@
+<!--by jade veenstra!-->
 <!--includes header.inc!-->
 <?php include 'header.inc'; ?>
 <meta name="author" content="Jade Veenstra">
