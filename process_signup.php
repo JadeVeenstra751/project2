@@ -13,7 +13,7 @@ $username = trim($_POST['username']);
 $password = trim($_POST['password']);
 
 // (CHAT.GPT assistance) checks if username already exists
-$check_query = "SELECT * FROM users WHERE username = ?";
+$check_query = "SELECT * FROM user WHERE username = ?";
 $check_stmt = mysqli_prepare($conn2, $check_query);
 mysqli_stmt_bind_param($check_stmt, "s", $username);
 mysqli_stmt_execute($check_stmt);
@@ -29,7 +29,7 @@ mysqli_stmt_close($check_stmt);
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 // prepared statement to prevent SQL injection
-$query = "INSERT INTO users (username, password) VALUES (?, ?)";
+$query = "INSERT INTO user (username, password) VALUES (?, ?)";
 $stmt = mysqli_prepare($conn2, $query);
 mysqli_stmt_bind_param($stmt, "ss", $username, $hashed_password);
 
