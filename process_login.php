@@ -27,10 +27,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //gets result and gets user data
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
+        
+    if ($user) {
+            // Check if password is hashed (bcrypt hash starts with '$2y$')
+            if (strpos($user['password'], '$2y$') === 0) {
+                // password is hashed - verify using password_verify()
+                $valid = password_verify($input_password, $user['password']);
+            } else {
+                // password stored in plain text
+                $valid = ($input_password === $user['password']);
+
+                // if valid, rehash password and update DB
+                if ($valid) {
+                    $newHash = password_hash($input_password, PASSWORD_DEFAULT);
+
+                    $updateStmt = $conn2->prepare("UPDATE user SET password = ? WHERE username = ?");
+                    $updateStmt->bind_param("ss", $newHash, $input_username);
+                    $updateStmt->execute();
+                    $updateStmt->close();
+                }
+            }
+        }
 
     if (!$user) {
-         // verify password using password_verify()
-        if ($user && password_verify($input_password, $user['password'])) {
         //else if login successful, go to enhancements.php
         $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role'];
@@ -41,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
     }
-    
+
     //closes statement
        $stmt->close();
     } else {
