@@ -8,7 +8,6 @@
 <body class="enhancementsbody">
 <main class="enhancements-content">
     <h1>Enhancements Implemented</h1>
-
     <section>
         <h3>1. Provide the manager with the ability to select the field on which to sort the order in which the EOI records are displayed</h3>
         <p>BY Will Stevens</p>
@@ -26,7 +25,6 @@
            once the information has been inserted by the manager, it stores the user/manager data into an SQL table inside
            a database.
         </p>
-
     </section>
 <br>
     <section>
@@ -41,7 +39,6 @@
 <br>
 <br>
 </main>
-
 <?php include 'footer.inc'; ?>
 </body>
 </html>
