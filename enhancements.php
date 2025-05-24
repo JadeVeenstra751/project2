@@ -31,6 +31,14 @@
     <section>
         <h3>3. Control access to manage.php by checking username and password</h3>
         <p>BY Jade Veenstra</p>
+        <p> To access manage.php, the user has to be logged in as 'manager' with the correct password 
+            and the correct username. This is checked during process_login.php where the values are submitted to the login form 
+            then checks whether the user exists within the table in the database. If the user was found, it then
+            checks the password to see if it is correct. If it is correct, then it starts the session for the user.
+            Furthermore, to ensure only managers are able to view manage.php, a field is assigned to 'roles',
+            where there is the role of a 'manager' and the role of a 'user' to differentiate them from one another
+            and provide access to manage.php when necessary.
+        </p>
     </section>
 <br>
     <section>

@@ -1,24 +1,11 @@
 <!-- by jade veenstra! -->
- <?php
-//starts new session
-session_start();
-//checks if username session is set, if not redirects to login
-if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
-    exit();
-}
-//checks if user has the correct role
-if ($_SESSION['role'] !== 'manager') {
-    echo "Access denied. You do not have permission to view this page.";
-    exit();
-}
-?>
 <?php include 'header.inc'; ?>
 <meta name="author" content="Jade Veenstra">
 <title>LeafByte Tech Manage EOIs</title>
 <?php include 'nav.inc'; ?>
-
 <?php
+//start new session
+session_start();
 //includes db settings
 require_once("settings.php");
 //connect to db2
