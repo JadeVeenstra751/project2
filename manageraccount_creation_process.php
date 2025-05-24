@@ -41,7 +41,7 @@ $insert_stmt = mysqli_prepare($conn2, $insert_query);
 mysqli_stmt_bind_param($insert_stmt, "sss", $username, $hashed_password, $role);
 
 //if successful the execute
-if (mysqli_stmt_execute($stmt)) {
+if (mysqli_stmt_execute(($insert_stmt))) {
     //display message and let the return to manager page
     echo "Signup successful! You can now  You can now return to the <a href='./enhancements.php'>Manager page</a>.";
 } else {
@@ -50,6 +50,6 @@ if (mysqli_stmt_execute($stmt)) {
 }
 
 // closes connections
-mysqli_stmt_close($stmt);
+mysqli_stmt_close(($insert_stmt));
 mysqli_close($conn2);
 ?>
