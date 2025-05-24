@@ -34,7 +34,7 @@ include 'settings.php';
 
     // SQL query to fetch all jobs
     $sql = "SELECT * FROM jobs";
-    $result = mysqli_query($conn2, $sql_db2);
+    $result = mysqli_query($conn2, $sql);
 
     // Loop through each job record and display it
     while ($row = mysqli_fetch_assoc($result)) {
