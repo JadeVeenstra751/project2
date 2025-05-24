@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['role'] = $user['role'];
 
                 // redirects to enhancements.php
-                header("Location: ./enhancements.php");
+                header("Location: ./leafbyte_settings.php");
                 exit();
             } else {
                 // fail if password is incorrected
