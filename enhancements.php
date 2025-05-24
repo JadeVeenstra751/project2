@@ -37,6 +37,8 @@
         <h3>4. Have access to the web site disabled for user a period of time on, say, three or more invalid login attempts</h3>
         <p>BY Muhammad Taki</p>
     </section>
+<br>
+<br>
 </main>
 
 <?php include 'footer.inc'; ?>
