@@ -1,4 +1,4 @@
-<!-- by Jade Veenstra -->
+<!-- by jade veenstra -->
 <!-- includes header.inc -->
 <?php include 'header.inc'; ?>
 <meta name="author" content="Jade Veenstra">
@@ -16,11 +16,11 @@
       <!-- username input for user -->
       <label for="username">Choose a Username:</label>
       <input type="text" name="username" id="username" required>
-
+        <hr class="indexdivider4">
       <!-- password input for user -->
       <label for="password">Choose a Password:</label>
       <input type="password" name="password" id="password" required>
-
+      <hr class="indexdivider4">
       <!-- submit button -->
       <input type="submit" value="Sign Up">
     </div>

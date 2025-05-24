@@ -1,3 +1,4 @@
+<!--by jade veenstra!-->
 <?php
 require_once("settings.php");
 

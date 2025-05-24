@@ -123,12 +123,9 @@ footer{
 
 /*container for enhancements before logged in*/
 .centered-container {
-    text-align: center;
-    margin-top: 2em;  /* less vertical space on top */
-    margin-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-}
+            text-align: center; /*aligns to centre*/
+            margin: 9em 0; /*forces the buttons down*/
+        }
 
 /*container for enhancements after logged in*/
 .centered-container.logged-in {
