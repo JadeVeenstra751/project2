@@ -8,7 +8,7 @@
 </head>
 
 <!--declares a class for login body!-->
-<body class="loginbodyandmanage">
+<body class="loginbody">
 <form action="process_login.php" method="post">
   <!--class for login-form!-->
   <div class="login-form">
