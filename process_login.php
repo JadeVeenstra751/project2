@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];
                 // user go after logging in
-                header("Location: ./enhancements.php");
+                header("Location: ./leafbyte_settings.php");
                 exit();
             } else {
                 // If the username or password is NOT correct:
