@@ -5,7 +5,7 @@
     $pwd = "";// password for SQL user
 
     // databases
-    $sql_db2 = "userprofile";
+    $sql_db2 = "usersandeois";
 
     // connect to userprofile db
     //establish connection
