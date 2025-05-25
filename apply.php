@@ -1,4 +1,6 @@
- <?php include 'header.inc';?>
+ <?php include 'header.inc';
+
+ ?>
     <meta name="author" content="Will Stevens">
     <title>Job Application Page</title>
 </head>
@@ -18,7 +20,7 @@
             If you are unable to answer you can use N/A. </p> 
     </fieldset>
     <!--Creation of form-->
-     <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+     <form method="post" action="process_eoi.php">
         <!--Adds a fieldset that has a drop down list, containing job reference numbers. 
         Uses "please select" as a placeholder-->
         <fieldset>
@@ -64,7 +66,7 @@
             <!--Adds a textarea for street address-->
             <p>
                 <label for="StreetAddress">Street Address</label>
-                <input type="text" size="20" name="Street Address" id="StreetAddress" placeholder="e.g 123 Fake St" maxlength="40" required>
+                <input type="text" size="20" name="street_address" id="StreetAddress" placeholder="e.g 123 Fake St" maxlength="40" required>
             </p>
             <!--Makes a textarea for suburb/town-->
             <p>
@@ -89,7 +91,7 @@
             <!--Creates a text area for postcode, checking that it only uses numbers and is 4 digits long-->
             <p>
                 <label for="post">Postcode</label>
-                <input type="text" size="5" id="post" name="postcode" maxlength="4" pattern="" min="0200" max="9944" placeholder="e.g 3122" title="Can only be numbers 0 through 9, has to be 4 characters long" required>
+                <input type="text" size="5" id="post" name="postcode" maxlength="4" min="0200" max="9944" placeholder="e.g 3122" title="Can only be numbers 0 through 9, has to be 4 characters long" required>
             </p>
         </fieldset>
         <!--Creates a fieldset that obtains contact information (Email and Phone)-->
@@ -112,19 +114,19 @@
             <!--Makes a series of checkbox inputs, where html is checked already-->
             <p>
             <label for="html">HTML</label> 
-                <input type="checkbox" id="html" name="skill" value="html" checked="checked">
+                <input type="checkbox" id="html" name="skills[]" value="html" checked="checked">
               <label for="CSS">CSS</label>
-                <input type="checkbox" id="CSS" name="skill" value="CSS">
+                <input type="checkbox" id="CSS" name="skills[]" value="CSS">
             <label for="JavaScript">JavaScript</label>
-                <input type="checkbox" id="JavaScript" name="skill" value="JavaScript">
+                <input type="checkbox" id="JavaScript" name="skills[]" value="JavaScript">
             <label for = "PHP">PHP</label>
-                <input type="checkbox" id="PHP" name="skill" value="PHP">
+                <input type="checkbox" id="PHP" name="skills[]" value="PHP">
             <label for = "MySQL">MySQL</label>
-                <input type="checkbox" id="MySQL" name="skill" value="MySQL">
+                <input type="checkbox" id="MySQL" name="skills[]" value="MySQL">
             <label for = "Other">Other</label>
-                <input type="checkbox" id="Other" name="skill" value="Other">
+                <input type="checkbox" id="Other" name="skills[]" value="Other">
             <label for="N/A">Not a lot of coding experience</label>
-                <input type="checkbox" id="N/A" name="skill" value="N/A">
+                <input type="checkbox" id="N/A" name="skills[]" value="N/A">
             </p>
             <!--Makes a textarea where user can type out other skills relevant to job-->
             <p>
