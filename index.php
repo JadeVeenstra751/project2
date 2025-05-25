@@ -15,11 +15,11 @@
         <p id="companydescription">LeafByte Tech is an accredited job advertising platform focused on the technology industry. Here at LeafByte, we assist businesses in finding the right candidates and connect job seekers with the perfect opportunities through reliable postings, aiming to link skilled technology professionals with innovative companies in various sectors.</p> 
         <hr class="indexdivider1">
         <p>From software engineering roles to IT support positions, there are various listings on offer.</p>
-        <p><a id="indexinfosearch" href="/project1/jobs.php"><strong>SEARCH NOW</strong></a></p>
+        <p><a id="indexinfosearch" href="./jobs.php"><strong>SEARCH NOW</strong></a></p>
         <hr class="indexdivider2">
     <!-- text written by Moji, implemented into Jade's code-->
         <p>If you are ready to make your mark within the tech world, join us today in our journey to transform the industry, one byte at a time.</p>
-        <p><a id="indexinfoapply" href="/project1/apply.php"><strong>APPLY NOW</strong></a></p>
+        <p><a id="indexinfoapply" href="./apply.php"><strong>APPLY NOW</strong></a></p>
         <hr class="indexdivider3">
         <p id="emailink">Or contact us at <a href="mailto:info@LeafByteTech.com.au">info@LeafByteTech.com.au</a> for any inquiries.</p>
     </section>

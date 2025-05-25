@@ -23,8 +23,8 @@ if (!$conn2) {
 <body class="loginbody">
 <?php include 'nav.inc'; ?>
 <form method="post">
-  <br><br>
-  <!--a field where the manager can press a button to list all EOIs!-->
+  <br>
+  <!--a field where the manager can press a button to list all EOIs-->
   <fieldset>
     <legend>List All EOIs</legend>
     <input type="submit" name="list_all" value="List All EOIs"><br><br>
@@ -38,30 +38,47 @@ if (!$conn2) {
         $result = mysqli_query($conn2, $query);
       // if query returns, display in a table
         if ($result && mysqli_num_rows($result) > 0) {
+          /// start the table and add headers for each column
             echo "<table border='1' cellpadding='5'>";
             echo "<tr>
-                    <th>EOInumber</th>
-                    <th>Job reference number</th>
+                    <th>EOI Number</th>
+                    <th>Job Reference Number</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>E-mail</th>
+                    <th>Phone Nymber</th>
                     <th>Skills</th>
-                    <th>Other Skills</th>
                     <th>Status</th>
+                    <th>HTML</th>
+                    <th>CSS</th>
+                    <th>JavaScript</th>
+                    <th>PHP</th>
+                    <th>MySQL</th>
+                    <th>Other Skills</th>
+                    <th>Not Much Coding EXP</th>
                   </tr>";
             // loop through each row and output table data
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>
                         <td>" . htmlspecialchars($row['EOInumber']) . "</td>
                         <td>" . htmlspecialchars($row['Job reference number']) . "</td>
-                        <td>" . htmlspecialchars($row['First Name']) . "</td>
-                        <td>" . htmlspecialchars($row['Last Name']) . "</td>
+                        <td>" . htmlspecialchars($row['First_name']) . "</td>
+                        <td>" . htmlspecialchars($row['Last_name']) . "</td>
+                        <td>" . htmlspecialchars($row['DOB']) . "</td>
+                        <td>" . htmlspecialchars($row['Gender']) . "</td>
                         <td>" . htmlspecialchars($row['Email']) . "</td>
-                        <td>" . htmlspecialchars($row['Phone Number']) . "</td>
-                        <td>" . htmlspecialchars($row['Skills']) . "</td>
+                        <td>" . htmlspecialchars($row['Phone_number']) . "</td>
                         <td>" . htmlspecialchars($row['Other Skills']) . "</td>
-                        <td>" . htmlspecialchars($row['Status']) . "</td>
+                        <td>" . htmlspecialchars($row['status_id']) . "</td>
+                        <td>" . ($row['has_HTML'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_CSS'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_JavaScript'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_PHP'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_MySQL'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_Other_Skill_Checkbox'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_Not_much_coding_exp'] ? '✓' : 'X') . "</td>
                       </tr>";
             }
             echo "</table>";
@@ -93,6 +110,7 @@ if (!$conn2) {
         $result = mysqli_stmt_get_result($stmt);
          // if results found, display in table
         if ($result && mysqli_num_rows($result) > 0) {
+          /// start the table and add headers for each column
             echo "<table border='1' cellpadding='5'>";
             echo "<tr>
                     <th>EOInumber</th>
@@ -110,13 +128,21 @@ if (!$conn2) {
                 echo "<tr>
                         <td>" . htmlspecialchars($row['EOInumber']) . "</td>
                         <td>" . htmlspecialchars($row['Job reference number']) . "</td>
-                        <td>" . htmlspecialchars($row['First Name']) . "</td>
-                        <td>" . htmlspecialchars($row['Last Name']) . "</td>
+                        <td>" . htmlspecialchars($row['First_name']) . "</td>
+                        <td>" . htmlspecialchars($row['Last_name']) . "</td>
+                        <td>" . htmlspecialchars($row['DOB']) . "</td>
+                        <td>" . htmlspecialchars($row['Gender']) . "</td>
                         <td>" . htmlspecialchars($row['Email']) . "</td>
-                        <td>" . htmlspecialchars($row['Phone Number']) . "</td>
-                        <td>" . htmlspecialchars($row['Skills']) . "</td>
+                        <td>" . htmlspecialchars($row['Phone_number']) . "</td>
                         <td>" . htmlspecialchars($row['Other Skills']) . "</td>
-                        <td>" . htmlspecialchars($row['Status']) . "</td>
+                        <td>" . htmlspecialchars($row['status_id']) . "</td>
+                        <td>" . ($row['has_HTML'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_CSS'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_JavaScript'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_PHP'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_MySQL'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_Other_Skill_Checkbox'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_Not_much_coding_exp'] ? '✓' : 'X') . "</td>
                       </tr>";
             }
             echo "</table>";
@@ -158,13 +184,13 @@ if (!$conn2) {
 
          // add condition for first name if provided
         if (!empty($first)) {
-            $query .= " AND `First Name` = ?";
+            $query .= " AND First_name = ?";
             $params[] = $first;
             $types .= "s";// string type
         }
          // add condition for last name if provided
         if (!empty($last)) {
-            $query .= " AND `Last Name` = ?";
+            $query .= " AND Last_name = ?";
             $params[] = $last;
             $types .= "s";// string type
         }
@@ -183,25 +209,37 @@ if (!$conn2) {
             echo "<tr>
                     <th>EOInumber</th>
                     <th>Job reference number</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>First_name</th>
+                    <th>Last_name</th>
+                    <th>DOB</th>
                     <th>Email</th>
                     <th>Phone Number</th>
                     <th>Skills</th>
                     <th>Other Skills</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
                     <th>Status</th>
                   </tr>";
+                  // loop through each record and make a new table row for it
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>
                         <td>" . htmlspecialchars($row['EOInumber']) . "</td>
                         <td>" . htmlspecialchars($row['Job reference number']) . "</td>
-                        <td>" . htmlspecialchars($row['First Name']) . "</td>
-                        <td>" . htmlspecialchars($row['Last Name']) . "</td>
+                        <td>" . htmlspecialchars($row['First_name']) . "</td>
+                        <td>" . htmlspecialchars($row['Last_name']) . "</td>
+                        <td>" . htmlspecialchars($row['DOB']) . "</td>
+                        <td>" . htmlspecialchars($row['Gender']) . "</td>
                         <td>" . htmlspecialchars($row['Email']) . "</td>
-                        <td>" . htmlspecialchars($row['Phone Number']) . "</td>
-                        <td>" . htmlspecialchars($row['Skills']) . "</td>
+                        <td>" . htmlspecialchars($row['Phone_number']) . "</td>
                         <td>" . htmlspecialchars($row['Other Skills']) . "</td>
-                        <td>" . htmlspecialchars($row['Status']) . "</td>
+                        <td>" . htmlspecialchars($row['status_id']) . "</td>
+                        <td>" . ($row['has_HTML'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_CSS'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_JavaScript'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_PHP'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_MySQL'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_Other_Skill_Checkbox'] ? '✓' : 'X') . "</td>
+                        <td>" . ($row['has_Not_much_coding_exp'] ? '✓' : 'X') . "</td>
                       </tr>";
             }
             echo "</table>";
@@ -246,6 +284,61 @@ if (!$conn2) {
     }
     ?>
   </fieldset>
+<br>
+<br>
+  <fieldset>
+  <legend>Update Status by EOI Number</legend>
+  <input type="text" name="eoi_number_update" placeholder="EOI number">
+  <!--dropdown box to select new statuses-->
+  <select name="new_status">
+    <option value="">-- Select a New Status --</option>
+    <option value="New">New</option>
+    <option value="Current">Current</option>
+    <option value="Final">Final</option>
+  </select>
+  <br><br>
+  <!-- button to submit value-->
+  <input type="submit" name="update_status" value="Update Status">
+
+  <?php
+  // checks if the update status button was clicked
+  if (isset($_POST['update_status'])) {
+      // get, clear whitespace and clean the EOI number and new status input from the form
+      $eoi_number = trim($_POST['eoi_number_update'] ?? '');
+      $new_status = trim($_POST['new_status'] ?? '');
+
+        // make sure neither field is empty
+      if (empty($eoi_number) || empty($new_status)) {
+          echo "Please enter an EOI number and select a new status.";
+      } else {
+        // prepare a SQL statement to safely update the status
+          $stmt = mysqli_prepare($conn2, "UPDATE eois SET status_id = ? WHERE EOInumber = ?");
+          
+           // if preparing the statement worked
+          if ($stmt) {
+              mysqli_stmt_bind_param($stmt, "ss", $new_status, $eoi_number);
+               // run the statement
+              mysqli_stmt_execute($stmt);
+
+              // check if any rows were updated
+              if (mysqli_stmt_affected_rows($stmt) > 0) {
+                //display successful message
+                  echo "EOI status updated successfully.";
+              } else {
+                //display error message
+                  echo "No EOIs matched the EOI number.";
+              }
+
+                // close the statement
+              mysqli_stmt_close($stmt);
+          } else {
+               // if preparing failed, show an error
+              echo "Error preparing update: " . mysqli_error($conn2);
+          }
+      }
+  }
+  ?>
+</fieldset>
   <br>
   <br>
   <br>
