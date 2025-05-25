@@ -1,3 +1,4 @@
+<!--by jade veenstra-->
 <!-- enhancements.php -->
 <?php include 'header.inc'; ?>
 <meta name="author" content="Jade Veenstra, Will Stevens, Muhummad Taki">
@@ -30,11 +31,28 @@
     <section>
         <h3>3. Control access to manage.php by checking username and password</h3>
         <p>BY Jade Veenstra</p>
+        <p> To access manage.php, the user has to be logged in as 'manager' with the correct password 
+            and the correct username. This is checked during process_login.php where the values are submitted to the login form 
+            then checks whether the user exists within the table in the database. If the user was found, it then
+            checks the password to see if it is correct. If it is correct, then it starts the session for the user.
+            Furthermore, to ensure only managers are able to view manage.php, a field in the SQL table is assigned to 'roles',
+            where there is the role of a 'manager' and the role of a 'user' to differentiate them from one another
+            and provide access to manage.php only when the role is set to 'manager'. The session is then checked just as the user accesses manage.php to make sure that the user has the role of 'manager'.
+            If not, and the role is 'user', then the user is redirected back to user or login settings where they are unable to see manage.php to ensure security.
+        </p>
     </section>
 <br>
     <section>
         <h3>4. Have access to the web site disabled for user a period of time on, say, three or more invalid login attempts</h3>
         <p>BY Muhammad Taki</p>
+        <p>
+            I have implemented a somewhat security mechanism that locks out user from logging on an account for 10 seconds.
+            It tracks failed login attempts within the user's current session. If the number of incorrect tries reaches 3
+            the account is temporarily locked for a set duration 10 seconds. On succesful login,the attempt counter and lockout status are reset.
+            This can prevent brute force attacks, that is when hackers runs bots to login using multiple combinations. Innitialy,
+            I was going for a db connected login attempt mechanism so the manager can see see which user/s are currently locked out, but due to 
+            time constraint I unfortunatly couldn't.
+        </p>
     </section>
 <br>
 <br>

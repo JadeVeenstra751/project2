@@ -40,16 +40,23 @@ include 'settings.php';
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<section>";
         echo "<fieldset>";
+         // Display the job 'name' (title) within a <legend> and <h2> tag
         echo "<legend class='h1_jobs'><h2>" . ($row['name']) . "</h2></legend>";
+        // Display the job 'reference' number
         echo "<p><b>Reference Number:</b> " . ($row['reference']) . "</p>";
         echo "<p><b>Description:</b></p>";
+        // Add a heading for the job description
         echo "<p>" . ($row['description']) . "</p>";
         echo "<p><b>Responsibilities of this position include:</b></p>";
         echo "<ol>";
         // Split the responsibilities string by semicolon and display as list items
+        //Use of GenAI (Gemnini): prompt: I want to retrive text from db to ordered list, explain in steps 
         $responsibilities = explode(';', $row['skills_responsibilities']); //explode, seperates string to array
+        // Loop through each individual skill/responsibility in the newly created array
         foreach ($responsibilities as $skill) {
+            // Remove any leading or trailing whitespace from the skill
              $skill = trim($skill);
+            // Check if the skill is not empty after trimming
             if ($skill != "") {
                 echo "<li>$skill</li>";
             }
