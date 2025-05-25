@@ -17,8 +17,9 @@ $max_login_attempts = 3;
 $lockout_duration_seconds = 10;
 
 // Setup login tracking 
+//Use of GenAI (Gemini):
+//prompt: I want to create variables and use it as a while loop to detect login attempts and when it reaches a specific number it should disable login for a specified time. in steps tell me how
 $_SESSION['login_attempts'] = $_SESSION['login_attempts'] ?? 0;
-//Use of GenAI (Gemini): prompt: I want to add a timer when limit is reached, in steps explain
 $_SESSION['lockout_until'] = $_SESSION['lockout_until'] ?? null;
 //AI use end here
 //if post
@@ -91,11 +92,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['login_attempts']++;
                  // If the number of wrong tries has reached the limit:
                 if ($_SESSION['login_attempts'] >= $max_login_attempts) {
-                    //Use of GenAI: prompt: I want to add a timer when limit is reached, in steps explain
+                    //Use of GenAI: prompt: I want to create variables and use it as a while loop to detect login attempts and when it reaches a specific number it should disable login for a specified time. in steps tell me how
                     $_SESSION['lockout_until'] = date('Y-m-d H:i:s', time() + $lockout_duration_seconds);
                     // Set a time in the session for when the account will be unlocked (current time + lockout duration)
                      // Show a message saying the account is locked and for how long
                     $_SESSION['login_error'] = "Too many failed attempts. Account locked for $lockout_duration_seconds seconds.";
+                    //AI use till here
                 } else {
                     // If the number of wrong tries is still below the limit:
                     // Calculate how many more tries the user has left
@@ -113,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // If the number of wrong tries has reached the limit:
             if ($_SESSION['login_attempts'] >= $max_login_attempts) {
                 // Set a time in the session for when the account will be unlocked (current time + lockout duration)
-                //Use of GenAI (Gemini): prompt: I want to add a timer when limit is reached, in steps explain
+                //Use of GenAI (Gemini): prompt: I want to create variables and use it as a while loop to detect login attempts and when it reaches a specific number it should disable login for a specified time. in steps tell me how
                 $_SESSION['lockout_until'] = date('Y-m-d H:i:s', time() + $lockout_duration_seconds);
                 $_SESSION['login_error'] = "Too many failed login attempts. Account locked for $lockout_duration_seconds seconds.";
                 //AI use till here
