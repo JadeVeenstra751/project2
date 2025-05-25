@@ -1,4 +1,3 @@
-<!--by jade veenstra!-->
 <?php
 //starts new session
 session_start();

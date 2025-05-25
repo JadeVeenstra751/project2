@@ -137,15 +137,15 @@
         <dl class="students">
             <dt><strong>Jade Veenstra</strong></dt>
             <dd>Creator of the <a href="index.html" class="aboutlink"><strong>Home</strong></a> Page</dd>
-            <dd>Creator of 1, 2, 5, 6, 8.2, and 8.3 in Part A<dd>
+            <dd>Creator of 1, 2, 5, 6, 8.2 and 8.3 in Part A<dd>
 
             <dt><strong>Will Stevens</strong></dt>
             <dd>Creator of the <a href="apply.html" class="aboutlink"><strong>Apply</strong></a> Page</dd>
-            <dd>Creator of 3, 4 and 8.1, in Part A<dd>
+            <dd>Creator of 3, 4 and 8.1 in Part A<dd>
 
             <dt><strong>Muhammad Taki</strong></dt>
             <dd>Creator of the <a href="jobs.html" class="aboutlink"><strong>Position Description</strong></a> Page
-            <dd>Creator of 7 and 8.4, in Part A<dd>
+            <dd>Creator of 7 and 8.4 in Part A<dd>
 
             <dt><strong>Moji Alak</strong></dt>
             <dd>Creator of the <a href="about.html" class="aboutlink"><strong>About</strong></a> Page</dd>
