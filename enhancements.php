@@ -37,8 +37,8 @@
             checks the password to see if it is correct. If it is correct, then it starts the session for the user.
             Furthermore, to ensure only managers are able to view manage.php, a field in the SQL table is assigned to 'roles',
             where there is the role of a 'manager' and the role of a 'user' to differentiate them from one another
-            and provide access to manage.php only when the role is set to 'manager'. The session is then checked to ensure that the user has the role of 'manager'.
-            If not, and the role is 'user', then the user is directed to a page where they are unable to see manage.php.
+            and provide access to manage.php only when the role is set to 'manager'. The session is then checked just as the user accesses manage.php to make sure that the user has the role of 'manager'.
+            If not, and the role is 'user', then the user is redirected back to user or login settings where they are unable to see manage.php to ensure security.
         </p>
     </section>
 <br>

@@ -3,10 +3,15 @@
 <meta name="author" content="Jade Veenstra">
 <title>LeafByte Tech Manage EOIs</title>
 <?php
+require_once("settings.php");
 //start new session
 session_start();
-//includes db settings
-require_once("settings.php");
+//if the user is logged in as user or not logged in at all
+if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'manager') {
+  //then redirect user to settings page
+    header("Location: ./leafbyte_settings.php");
+    exit();
+}
 //connect to db2
 $conn2 = mysqli_connect($host, $user, $pwd, $sql_db2);
 //if not successful then show error and gterminate
