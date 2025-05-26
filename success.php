@@ -20,4 +20,5 @@
         <h1>Your EOI has been successfully recorded!</h1>
         <p><a href="index.php">Back to Home page</a></p>
 </body>
+<?php include 'footer.inc'; ?>
 </html>

@@ -22,7 +22,7 @@ if (!$conn2) {
 ?>
 <body class="loginbody">
 <?php include 'nav.inc'; ?>
-<form method="post">
+<form method="post" class="form2">
     <br>
     <fieldset>
         <!-- Create sort selection list -->
@@ -398,7 +398,7 @@ if (!$conn2) {
     <br>
     <br>
     <br>
-</form>
+</form class="form2">
 <?php include 'footer.inc'; ?>
 </body>
 </html>
