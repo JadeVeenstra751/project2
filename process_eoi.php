@@ -1,3 +1,4 @@
+<?php include 'header.inc'; ?>
 <?php
 // eoi_process.php by Will Stevens
 
@@ -11,6 +12,24 @@ function sanitize_input($data) {
     $data = stripslashes($data); // Strips all slashes off data
     $data = htmlspecialchars($data); // Converts special characters to HTML entities
     return $data;
+}
+
+function check_and_create_table($conn2, $table_name, $create_sql) {
+    // Check if table exists
+    $result = mysqli_query($conn2, "SHOW TABLES LIKE '" . mysqli_real_escape_string($conn2, $table_name) . "'");
+
+    if (mysqli_num_rows($result) == 0) {
+        // Table does not exist, try to create it
+        if (mysqli_query($conn2, $create_sql)) {
+            error_log("Table '$table_name' created successfully.");
+            return true;
+        } else {
+            error_log("Error creating table '$table_name': " . mysqli_error($conn2));
+            return false;
+        }
+    }
+    // Table already exists
+    return true;
 }
 
 // Check if the form was submitted using POST method
@@ -90,6 +109,7 @@ if (isset($_POST['skills']) && is_array($_POST['skills'])) {
         'postcode' => $postcode
     ];
     //Checks to make sure all required fields are filled
+    // This shouldn't occur as the form checks this already, but in the case it does, it won't allow it to go through
     $errors = [];
     foreach ($required_fields as $field_name => $field_value) {
         if (empty($field_value)) {
@@ -113,21 +133,69 @@ if (isset($_POST['skills']) && is_array($_POST['skills'])) {
     $conn2 = mysqli_connect($host, $user, $pwd, $sql_db2);
 
     // Check connection
-    if (!$conn) {
+    if (!$conn2) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
+        // --- START: Table Existence Check and Creation ---
+    $eois_create_sql = "
+        CREATE TABLE eois (
+            EOInumber INT AUTO_INCREMENT PRIMARY KEY,
+            `Job Reference number` VARCHAR(255) NOT NULL,
+            First_name VARCHAR(255) NOT NULL,
+            Last_name VARCHAR(255) NOT NULL,
+            DOB DATE,
+            Gender VARCHAR(50),
+            Email VARCHAR(255) NOT NULL,
+            Phone_number VARCHAR(50),
+            status_id SET('New', 'Current', 'Final') DEFAULT 'New',
+            has_HTML TINYINT(1) DEFAULT 0 NOT NULL,
+            has_CSS TINYINT(1) DEFAULT 0 NOT NULL,
+            has_JavaScript TINYINT(1) DEFAULT 0 NOT NULL,
+            has_PHP TINYINT(1) DEFAULT 0 NOT NULL,
+            has_MySQL TINYINT(1) DEFAULT 0 NOT NULL,
+            has_Other_Skill_Checkbox TINYINT(1) DEFAULT 0 NOT NULL,
+            has_Not_much_coding_exp TINYINT(1) DEFAULT 0 NOT NULL,
+            `Other Skills` TEXT,
+            submission_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
+    ";
+    // Foreign key to link to eois
+    $address_create_sql = "
+        CREATE TABLE address (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            `Street Address` VARCHAR(255) NOT NULL,
+            `suburb_town` VARCHAR(255) NOT NULL,
+            `State` VARCHAR(50) NOT NULL,
+            `Postcode` VARCHAR(20) NOT NULL,
+            FOREIGN KEY (id) REFERENCES eois(EOInumber) ON DELETE CASCADE 
+        );
+    ";
+
+    // Check and create eois table
+    if (!check_and_create_table($conn2, 'eois', $eois_create_sql)) {
+        die("Failed to create or verify 'eois' table. Please check database permissions.");
+    }
+
+    // Check and create address table
+    if (!check_and_create_table($conn2, 'address', $address_create_sql)) {
+        die("Failed to create or verify 'address' table. Please check database permissions.");
+    }
+    // --- END: Table Existence Check and Creation ---
+
     // Start a transaction to ensure both inserts succeed or fail together, allowing for safe and consistent insertion
-    mysqli_begin_transaction($conn);
+    // I found try, catch and finally on the W3School forums, where if it tries the insertion and there is an error, it will be caught
+    mysqli_begin_transaction($conn2);
     try {
         //Prepare and execute SQL INSERT for eoi_submissions table
-        $sql_eoi = "INSERT INTO `eoi's` (`Job Reference number`, `First_name`, `Last_name`, `DOB`, `Gender`, `Email`, `Phone_number`,
+        $sql_eoi = "INSERT INTO `eois` (`Job Reference number`, `First_name`, `Last_name`, `DOB`, `Gender`, `Email`, `Phone_number`,
         `has_HTML`, `has_CSS`, `has_JavaScript`, `has_PHP`, `has_MySQL`, `has_Other_Skill_Checkbox`, `has_Not_much_coding_exp`, `Other Skills`) 
         VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?,?)";
-        $stmt_eoi = mysqli_prepare($conn, $sql_eoi);
+        $stmt_eoi = mysqli_prepare($conn2, $sql_eoi);
         // Checks to see if preperation was unuccessful (thus false)
+        // This will catch the error
         if (!$stmt_eoi) {
-            throw new Exception("Error preparing EOI statement: " . mysqli_error($conn));
+            throw new Exception("Error preparing EOI statement: " . mysqli_error($conn2));
         }
 
     mysqli_stmt_bind_param(
@@ -149,24 +217,24 @@ if (isset($_POST['skills']) && is_array($_POST['skills'])) {
     $has_Not_much_coding_exp,
     $other_skills
 );
-
+        // This will catch an error if there is one
         if (!mysqli_stmt_execute($stmt_eoi)) {
             throw new Exception("Error executing EOI statement: " . mysqli_stmt_error($stmt_eoi));
         }
 
         // Get the ID of the newly inserted EOI record
-        $eoi_id = mysqli_insert_id($conn);
+        $eoi_id = mysqli_insert_id($conn2);
         mysqli_stmt_close($stmt_eoi);
 
         // Prepare and execute SQL INSERT for addresses table
-        $sql_address = "INSERT INTO `address` (`EOInumber`, `Street Address`, suburb_town, `State`, `Postcode`) VALUES (?, ?, ?, ?, ?)";
-        $stmt_address = mysqli_prepare($conn, $sql_address);
+        $sql_address = "INSERT INTO `address` (`Street Address`, `suburb_town`, `State`, `Postcode`) VALUES (?, ?, ?, ?)";
+        $stmt_address = mysqli_prepare($conn2, $sql_address);
 
         if (!$stmt_address) {
-            throw new Exception("Error preparing Address statement: " . mysqli_error($conn));
+            throw new Exception("Error preparing Address statement: " . mysqli_error($conn2));
         }
 
-        mysqli_stmt_bind_param($stmt_address, "isssi", $eoi_id, $street_address, $suburb_town, $state, $postcode); // 'i' for integer (eoi_id), 'sss' for strings
+        mysqli_stmt_bind_param($stmt_address, "sssi", $street_address, $suburb_town, $state, $postcode); // 'i' for integer (eoi_id), 'sss' for strings
 
         if (!mysqli_stmt_execute($stmt_address)) {
             throw new Exception("Error executing Address statement: " . mysqli_stmt_error($stmt_address));
@@ -175,22 +243,17 @@ if (isset($_POST['skills']) && is_array($_POST['skills'])) {
         mysqli_stmt_close($stmt_address);
 
         // Commit the transaction if both inserts were successful
-        mysqli_commit($conn);
-
-        echo "<h2>Expression of Interest Submitted Successfully!</h2>";
-        echo "<p>Thank you for your submission.</p>";
-        $sql = "SELECT EOInumber FROM `eoi's`";
-        $EOInum = mysqli_query($conn2, $sql);
-        echo "<p> Your EOI record number is : "/$EOInum"/</p>"
-
+        mysqli_commit($conn2);
+        // Sends to succes.php to display success message
+        header("Location: success.php"); 
     } catch (Exception $e) {
         // Rollback the transaction if any error occurred
-        mysqli_rollback($conn);
+        mysqli_rollback($conn2);
         echo "<h2>Error submitting your Expression of Interest.</h2>";
         echo "<p>Please try again. Error: " . $e->getMessage() . "</p>";
     } finally {
         // Close the database connection
-        mysqli_close($conn);
+        mysqli_close($conn2);
     }
 
 } else {
@@ -201,3 +264,4 @@ if (isset($_POST['skills']) && is_array($_POST['skills'])) {
 }
 
 ?>
+<?php include 'footer.inc'; ?>

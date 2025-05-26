@@ -259,6 +259,14 @@ fieldset{
     width:800px;/*changes width of fieldset to 750px*/
 }
 
+.manage_field{
+    color:#351e0f;/*changes color of the text to brown*/
+    border-color:#351e0f;/*changes colour of its border to brown*/
+    border-radius:20px;/*changes border radius to round it off more*/
+
+    float:left;
+}
+
 /*select and input*/
 select, input, textarea{
     border:solid 2px #351e0f;

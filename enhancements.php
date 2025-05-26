@@ -12,6 +12,11 @@
     <section>
         <h3>1. Provide the manager with the ability to select the field on which to sort the order in which the EOI records are displayed</h3>
         <p>BY Will Stevens</p>
+        <p>I have added two drop downlists in the "List all EOI's" fieldset. The first dropdown list allows the manager to
+           choose which field to order it by, and another dropdownlist to select the order. In doing so, I also combined the address 
+           and eois table so that the data can be printed out relative to each other (eg. If the manager chooses to sort by suburb, it will print
+           out each EOI, with its data from eois and address attatched). To avoid SQL injections, a check of entered values from the dropdownlists are implemented,
+           using a variable that contains each allowed field and order. This and the sanitation of inputs ensures security of the database, preventing attacks.
     </section>
 <br>
     <section>

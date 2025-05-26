@@ -91,7 +91,7 @@
             <!--Creates a text area for postcode, checking that it only uses numbers and is 4 digits long-->
             <p>
                 <label for="post">Postcode</label>
-                <input type="text" size="5" id="post" name="postcode" maxlength="4" min="0200" max="9944" placeholder="e.g 3122" title="Can only be numbers 0 through 9, has to be 4 characters long" required>
+                <input type="number" size="5"  id="post"  name="postcode" maxlength="4"  min="2000" max="2999"  step="1"  placeholder="e.g. 2100" title="Please enter a 4-digit postcode between 2000 and 2999."  pattern="[0-9]{4}" required>
             </p>
         </fieldset>
         <!--Creates a fieldset that obtains contact information (Email and Phone)-->
