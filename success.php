@@ -18,6 +18,6 @@
     <?php include 'nav.inc'; ?>
     <fieldset>
         <h1>Your EOI has been successfully recorded!</h1>
-        <p><a href="index.php">Back to Index</a></p>
+        <p><a href="index.php">Back to Home page</a></p>
 </body>
 </html>
