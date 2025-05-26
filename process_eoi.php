@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $jobnum = sanitize_input($_POST['jobnum'] ?? '');
     $name = sanitize_input($_POST['name'] ?? '');
     $family_name = sanitize_input($_POST['family'] ?? '');
-    $dob = sanitize_input($_POST['DOB'] ?? ''); 
+    $dob = sanitize_input($_POST['DOB'] ?? '');
     $gender = sanitize_input($_POST['Gender'] ?? '');
     $email = sanitize_input($_POST['email'] ?? '');
     $phone = sanitize_input($_POST['phone'] ?? '');
@@ -52,41 +52,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $has_Not_much_coding_exp = 0;
     $other_skills = sanitize_input($_POST['OtherSkills'] ?? '');
 
-// Check if any skills were submitted and iterate through the array
-if (isset($_POST['skills']) && is_array($_POST['skills'])) {
-    foreach ($_POST['skills'] as $selected_skill) {
-        // Sanitize each individual selected skill value
-        $sanitized_skill = sanitize_input($selected_skill); //Sends selected_skill as a local variable
+    // Check if any skills were submitted and iterate through the array
+    if (isset($_POST['skills']) && is_array($_POST['skills'])) {
+        foreach ($_POST['skills'] as $selected_skill) {
+            // Sanitize each individual selected skill value
+            $sanitized_skill = sanitize_input($selected_skill); //Sends selected_skill as a local variable
 
-        // Set the corresponding flag to 1 if the skill was selected
-        switch ($sanitized_skill) {
-            case 'HTML':
-                $has_HTML = 1;
-                break;
-            case 'CSS':
-                $has_CSS = 1;
-                break;
-            case 'JavaScript':
-                $has_JavaScript = 1;
-                break;
-            case 'PHP':
-                $has_PHP = 1;
-                break;
-            case 'MySQL':
-                $has_MySQL = 1;
-                break;
-            case 'Other': 
-                $has_Other_Skill_Checkbox = 1;
-                break;
-            case 'Not a lot of coding experience':
-                $has_Not_much_coding_exp = 1;
-                break;
+            // Set the corresponding flag to 1 if the skill was selected
+            switch ($sanitized_skill) {
+                case 'HTML':
+                    $has_HTML = 1;
+                    break;
+                case 'CSS':
+                    $has_CSS = 1;
+                    break;
+                case 'JavaScript':
+                    $has_JavaScript = 1;
+                    break;
+                case 'PHP':
+                    $has_PHP = 1;
+                    break;
+                case 'MySQL':
+                    $has_MySQL = 1;
+                    break;
+                case 'Other':
+                    $has_Other_Skill_Checkbox = 1;
+                    break;
+                case 'Not a lot of coding experience':
+                    $has_Not_much_coding_exp = 1;
+                    break;
+            }
         }
     }
-}
-// --- END NEW SKILLS HANDLING ---
+    // --- END NEW SKILLS HANDLING ---
 
-    $other_skills = sanitize_input($_POST['OtherSkills'] ?? '');
+    // The $other_skills variable is already sanitized above, no need to repeat
+    // $other_skills = sanitize_input($_POST['OtherSkills'] ?? '');
 
     // Retrieve and sanitize form data for Address
     $street_address = sanitize_input($_POST['street_address'] ?? '');
@@ -94,42 +95,76 @@ if (isset($_POST['skills']) && is_array($_POST['skills'])) {
     $state = sanitize_input($_POST['state'] ?? '');
     $postcode = sanitize_input($_POST['postcode'] ?? '');
 
-    //Validate all required fields
-    $required_fields = [
-        'jobnum' => $jobnum,
-        'name' => $name,
-        'family_name' => $family_name,
-        'DOB' => $dob,
-        'gender' => $gender,
-        'email' => $email,
-        'phone' => $phone,
-        `street_address` => $street_address,
-        'suburb_town' => $suburb_town,
-        'state' => $state,
-        'postcode' => $postcode
-    ];
-    //Checks to make sure all required fields are filled
-    // This shouldn't occur as the form checks this already, but in the case it does, it won't allow it to go through
+    // Initialize an array to store validation errors
     $errors = [];
-    foreach ($required_fields as $field_name => $field_value) {
-        if (empty($field_value)) {
-            $errors[] = ucfirst(str_replace('_', ' ', $field_name)) . " is required.";
-        }
+
+    //Server-Side Validation 
+
+    // Validate First Name (only letters and spaces)
+    if (!preg_match('/^[a-zA-Z\s]+$/', $name)) {
+        $errors[] = "First Name can only contain letters and spaces.";
     }
+
+    // Validate Last Name (only letters and spaces)
+    if (!preg_match('/^[a-zA-Z\s]+$/', $family_name)) {
+        $errors[] = "Last Name can only contain letters and spaces.";
+    }
+
+    // Validate Date of Birth (must be a valid date and not in the future)
+    $dob_timestamp = strtotime($dob);
+        $today = time(); // Current timestamp
+        // Check if DOB is in the future
+        if ($dob_timestamp > $today) {
+            $errors[] = "Date of Birth cannot be in the future.";
+        }
+
+    // Validate Email
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Email is not a valid email address.";
+    }
+
+    // Validate Phone Number (8 to 12 digits, can contain spaces or hyphens but only numbers are counted)
+    // First, remove any non-digit characters for the length check
+    $cleaned_phone = preg_replace('/[^0-9]/', '', $phone);
+    if (!preg_match('/^\d{8,12}$/', $cleaned_phone)) {
+        $errors[] = "Phone Number must be between 8 and 12 digits long.";
+    }
+
+    // Validate Postcode (exactly 4 digits, between 2000 and 2999)
+    $postcode_options = [
+        'options' => [
+            'min_range' => 2000,
+            'max_range' => 2999
+        ]
+    ];
+    $validated_postcode = filter_var($postcode, FILTER_VALIDATE_INT, $postcode_options);
+
+    if ($validated_postcode === false || strlen((string)$validated_postcode) !== 4) {
+        $errors[] = "Postcode must be exactly 4 digits long and between 2000 and 2999.";
+    } else {
+        $postcode = $validated_postcode; // Update $postcode to the validated integer value
+    }
+
+    // Validate Suburb/Town (can contain letters, spaces, hyphens)
+    if (!preg_match('/^[a-zA-Z\s\-]+$/', $suburb_town)) {
+        $errors[] = "Suburb/Town can only contain letters, spaces, and hyphens.";
+    }
+
 
     // If there are any validation errors, print them and stop
     if (!empty($errors)) {
-        echo "<h2>Error: Missing Required Information</h2>";
+        echo "<h2>Error: Please correct the following issues:</h2>";
         echo "<ul>";
         foreach ($errors as $error) {
             echo "<li>" . $error . "</li>";
         }
         echo "</ul>";
-        echo "<p>Please go back and fill in all the required fields.</p>";
+        echo "<p>Please go back to the <a href='apply.php'>application form</a> to correct these errors.</p>";
+        include 'footer.inc'; // Include footer before exiting
         exit(); // Stop script execution
     }
 
-    // Establish database connection
+    // Establish database connection (only connect if validation passes)
     $conn2 = mysqli_connect($host, $user, $pwd, $sql_db2);
 
     // Check connection
@@ -137,7 +172,7 @@ if (isset($_POST['skills']) && is_array($_POST['skills'])) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-        // --- START: Table Existence Check and Creation ---
+    // Table Existence Check and Creation 
     $eois_create_sql = "
         CREATE TABLE eois (
             EOInumber INT AUTO_INCREMENT PRIMARY KEY,
@@ -168,7 +203,7 @@ if (isset($_POST['skills']) && is_array($_POST['skills'])) {
             `suburb_town` VARCHAR(255) NOT NULL,
             `State` VARCHAR(50) NOT NULL,
             `Postcode` VARCHAR(20) NOT NULL,
-            FOREIGN KEY (id) REFERENCES eois(EOInumber) ON DELETE CASCADE 
+            FOREIGN KEY (id) REFERENCES eois(EOInumber) ON DELETE CASCADE
         );
     ";
 
@@ -181,7 +216,7 @@ if (isset($_POST['skills']) && is_array($_POST['skills'])) {
     if (!check_and_create_table($conn2, 'address', $address_create_sql)) {
         die("Failed to create or verify 'address' table. Please check database permissions.");
     }
-    // --- END: Table Existence Check and Creation ---
+    // Table Existence Check and Creation 
 
     // Start a transaction to ensure both inserts succeed or fail together, allowing for safe and consistent insertion
     // I found try, catch and finally on the W3School forums, where if it tries the insertion and there is an error, it will be caught
@@ -189,8 +224,8 @@ if (isset($_POST['skills']) && is_array($_POST['skills'])) {
     try {
         //Prepare and execute SQL INSERT for eoi_submissions table
         $sql_eoi = "INSERT INTO `eois` (`Job Reference number`, `First_name`, `Last_name`, `DOB`, `Gender`, `Email`, `Phone_number`,
-        `has_HTML`, `has_CSS`, `has_JavaScript`, `has_PHP`, `has_MySQL`, `has_Other_Skill_Checkbox`, `has_Not_much_coding_exp`, `Other Skills`) 
-        VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?,?)";
+        `has_HTML`, `has_CSS`, `has_JavaScript`, `has_PHP`, `has_MySQL`, `has_Other_Skill_Checkbox`, `has_Not_much_coding_exp`, `Other Skills`)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // Make sure number of ? matches bind_param
         $stmt_eoi = mysqli_prepare($conn2, $sql_eoi);
         // Checks to see if preperation was unuccessful (thus false)
         // This will catch the error
@@ -198,25 +233,25 @@ if (isset($_POST['skills']) && is_array($_POST['skills'])) {
             throw new Exception("Error preparing EOI statement: " . mysqli_error($conn2));
         }
 
-    mysqli_stmt_bind_param(
-    $stmt_eoi, //prepared statement that will have paramaters binded to
-    "sssssssiisiiiis", // s=string, i=integer
-    $jobnum,
-    $name,
-    $family_name,
-    $dob,
-    $gender,
-    $email,
-    $phone,
-    $has_HTML,
-    $has_CSS,
-    $has_JavaScript,
-    $has_PHP,
-    $has_MySQL,
-    $has_Other_Skill_Checkbox,
-    $has_Not_much_coding_exp,
-    $other_skills
-);
+        mysqli_stmt_bind_param(
+            $stmt_eoi, //prepared statement that will have paramaters binded to
+            "sssssssiisiiiis", // s=string, i=integer (15 parameters in total)
+            $jobnum,
+            $name,
+            $family_name,
+            $dob,
+            $gender,
+            $email,
+            $phone,
+            $has_HTML,
+            $has_CSS,
+            $has_JavaScript,
+            $has_PHP,
+            $has_MySQL,
+            $has_Other_Skill_Checkbox,
+            $has_Not_much_coding_exp,
+            $other_skills
+        );
         // This will catch an error if there is one
         if (!mysqli_stmt_execute($stmt_eoi)) {
             throw new Exception("Error executing EOI statement: " . mysqli_stmt_error($stmt_eoi));
@@ -227,14 +262,20 @@ if (isset($_POST['skills']) && is_array($_POST['skills'])) {
         mysqli_stmt_close($stmt_eoi);
 
         // Prepare and execute SQL INSERT for addresses table
-        $sql_address = "INSERT INTO `address` (`Street Address`, `suburb_town`, `State`, `Postcode`) VALUES (?, ?, ?, ?)";
+        // IMPORTANT: You need to associate the address with the EOI.
+        // The foreign key (id) in the 'address' table should be the EOInumber from the 'eois' table.
+        // Your current schema for `address` table `id INT AUTO_INCREMENT PRIMARY KEY, FOREIGN KEY (id) REFERENCES eois(EOInumber)`
+        // implies a 1-to-1 relationship where `address.id` *is* the `eois.EOInumber`.
+        // So, you insert the $eoi_id into the `id` column of the `address` table.
+        $sql_address = "INSERT INTO `address` (`id`, `Street Address`, `suburb_town`, `State`, `Postcode`) VALUES (?, ?, ?, ?, ?)";
         $stmt_address = mysqli_prepare($conn2, $sql_address);
 
         if (!$stmt_address) {
             throw new Exception("Error preparing Address statement: " . mysqli_error($conn2));
         }
 
-        mysqli_stmt_bind_param($stmt_address, "sssi", $street_address, $suburb_town, $state, $postcode); // 'i' for integer (eoi_id), 'sss' for strings
+        // Bind parameters: 'i' for eoi_id, 'ssss' for the address strings
+        mysqli_stmt_bind_param($stmt_address, "issss", $eoi_id, $street_address, $suburb_town, $state, $postcode);
 
         if (!mysqli_stmt_execute($stmt_address)) {
             throw new Exception("Error executing Address statement: " . mysqli_stmt_error($stmt_address));
@@ -244,16 +285,19 @@ if (isset($_POST['skills']) && is_array($_POST['skills'])) {
 
         // Commit the transaction if both inserts were successful
         mysqli_commit($conn2);
-        // Sends to succes.php to display success message
-        header("Location: success.php"); 
+        // Sends to success.php to display success message
+        header("Location: success.php?eoi_id=" . $eoi_id); // Pass EOI ID for reference on success page
+        exit(); // Ensure no further code is executed after redirect
     } catch (Exception $e) {
         // Rollback the transaction if any error occurred
         mysqli_rollback($conn2);
         echo "<h2>Error submitting your Expression of Interest.</h2>";
-        echo "<p>Please try again. Error: " . $e->getMessage() . "</p>";
+        echo "<p>Please try again. Error: " . htmlspecialchars($e->getMessage()) . "</p>";
     } finally {
         // Close the database connection
-        mysqli_close($conn2);
+        if ($conn2) { // Ensure connection exists before trying to close
+            mysqli_close($conn2);
+        }
     }
 
 } else {
@@ -261,6 +305,7 @@ if (isset($_POST['skills']) && is_array($_POST['skills'])) {
     echo "<h2>Invalid Request Method.</h2>";
     echo "<p>Please submit the form using the POST method.</p>";
     header("Location: apply.php"); // Redirect back to the form
+    exit(); // Ensure no further code is executed after redirect
 }
 
 ?>

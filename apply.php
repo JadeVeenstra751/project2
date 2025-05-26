@@ -20,7 +20,7 @@
             If you are unable to answer you can use N/A. </p> 
     </fieldset>
     <!--Creation of form-->
-     <form method="post" action="process_eoi.php">
+     <form method="post" action="process_eoi.php" novalidate>
         <!--Adds a fieldset that has a drop down list, containing job reference numbers. 
         Uses "please select" as a placeholder-->
         <fieldset>
